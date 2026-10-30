@@ -1,0 +1,34 @@
+# Arquivos compilados do Java (.class)
+*.class
+
+# Arquivos de log e empacotamento
+*.log
+*.jar
+*.war
+
+# Pastas de build geradas pelos compiladores (VS Code, Eclipse, IntelliJ, Maven, Gradle, NetBeans)
+bin/
+out/
+target/
+build/
+nbbuild/
+dist/
+.nb-gradle/
+
+# Configurações de IDEs (VS Code, Eclipse, IntelliJ)
+.settings/
+.classpath
+.project
+.metadata/
+.recommenders/
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# Configurações privadas do NetBeans (IMPORTANTE: MANTÉM nbproject/ MAS IGNORA nbproject/private/)
+nbproject/private/
+
+# Arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
