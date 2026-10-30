@@ -1,5 +1,7 @@
 package com.github.andrelauterjung.jogo.forca.app;
 
+import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -20,9 +22,10 @@ public class Main {
         
         // Variáveis
         String palavraAtual = "";
-        int quantidadeLetras = -1;
+        int quantidadeLetras = 0;
         int quantidadeErro = 0;
         
+        boolean isHaLetraTracejada = false;
         boolean isLetraNaPalavra = false;
         boolean isRunning = false;
         
@@ -35,10 +38,6 @@ public class Main {
             palavraAtual = palavras.get(i).toLowerCase();
             quantidadeLetras = palavraAtual.length();
         }
-        
-        // System.out.println("Palavra atual: "+palavraAtual);
-        
-        
 
         // cada letra fica em uma posição do char: Exemplo: a[0], b[1], c[3]
         palavraArrayChar = new char[quantidadeLetras];
@@ -57,11 +56,6 @@ public class Main {
         }
         
         
-        //Até aqui, okay!
-        
-        
-        
-        
         palavraTracejadaChar = new char[quantidadeLetras];
         //Loop para fazer a palavra "tracejada": Exemplo: _ _ _ _ _ _ _
         for(int i = 0; i < palavraArrayChar.length; i++) {
@@ -78,11 +72,38 @@ public class Main {
         } */
         
         
-        
+        System.out.println("\n================ JOGO DA FORCA ===================");
         isRunning = true;
         while(isRunning)
         {
-            System.out.println("\n================ JOGO DA FORCA ===================");
+            /* Este loop serve para mostrar palavra atual de forma tracejada (exemplo: _ _ _ _ _ _ _)*/
+            System.out.printf("\nPalavra: ");
+            for(int i = 0; i < palavraArrayChar.length; i++)
+            {
+                System.out.printf("%c ", palavraTracejadaChar[i]);
+            }
+            System.out.println("");
+
+
+            System.out.println("\nDigite uma letra: ");
+            char letraDigitada = sc.nextLine().charAt(0);
+
+            for(int i = 0; i < palavraAtual.length(); i++) {
+
+                /*Se na palavra contém a letra, substitui o _ pela letra digitada*/
+                if(palavraArrayChar[i] == letraDigitada) {
+                    
+                    isLetraNaPalavra = true;
+                    palavraTracejadaChar[i] = letraDigitada;
+                    
+                }
+                else if(!isLetraNaPalavra) {
+                    
+                    System.out.println("\nNão tem essa letra na palavra!");
+                }
+            }
+            
+            //quantidadeErro++;
 
             switch(quantidadeErro) {
                 
@@ -100,7 +121,7 @@ public class Main {
                     System.out.println("  O  \n  |");
                     break;
                     
-                case 3: 
+                case 3:               quantidadeErro++;
                     System.out.println("Você tem 3 erros!");
                     System.out.println("  O  \n /|");
                     break;
@@ -119,54 +140,11 @@ public class Main {
                     System.out.println("Você tem 6 erros!");
                     System.out.println("  O  \n /|\\ \n / \\");
                     
-                    // mensagem encerramento programa
-                    // fechamento do loop while
+                    MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+                    isRunning = false;
                     break;
             }
-
-            
-
-            // Mostrar as linhas tracejadas do array palavra tracejada char
-            System.out.printf("\nPalavra: ");
-            for(int i = 0; i < palavraArrayChar.length; i++) {
-
-                System.out.printf("%c ", palavraTracejadaChar[i]);
-            }
-
-
-            System.out.println("\nDigite uma letra: ");
-            char letraDigitada = sc.nextLine().charAt(0);
-
-            for(int i = 0; i < palavraAtual.length(); i++) {
-
-                /*Se na palavra contém a letra, substitui o _ pela letra digitada*/
-                if(palavraArrayChar[i] == letraDigitada) {
-                    
-                    isLetraNaPalavra = true;
-                    palavraTracejadaChar[i] = letraDigitada;
-                    
-                }
-                else if(isLetraNaPalavra == false) {
-                    
-                    System.out.println("\nNão tem essa letra na palavra!");
-                    quantidadeErro++;
-                }
-            }
-            
-            System.out.println("Quantidade de erros: "+quantidadeErro);
-            
-            
-            System.out.printf("\nPalavra: ");
-            for(int i = 0; i < palavraArrayChar.length; i++) {
-
-                System.out.printf("%c ", palavraTracejadaChar[i]);
-            }
-
-
-            System.out.println("\n==================================================");
-            System.out.println("Programa encerrado!");
-            System.out.println("==================================================");
         }
-        
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
     }
 }
