@@ -2,6 +2,7 @@ package com.github.andrelauterjung.jogo.forca.app;
 
 import com.github.andrelauterjung.jogo.forca.logic.EntradaDados;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
+import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import com.github.andrelauterjung.jogo.forca.view.LinhasDivisorias;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 
@@ -18,6 +19,7 @@ public class Main {
         
         EntradaDados entradaDados = new EntradaDados();
         DadosJogo dados = new DadosJogo();
+        TelaJogo telaInfos = new TelaJogo();
         Scanner sc = new Scanner(System.in);
         
         // Listas
@@ -94,53 +96,10 @@ public class Main {
                 dados.setQuantidadeErros(++qtdErros);
             }
  
-            switch(dados.getQuantidadeErros()) {
-                
-                case 0:
-                    break;
-                    
-                case 1:
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    System.out.println("Você tem 1 erro!");
-                    System.out.println("  O  ");
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    break;
-                    
-                case 2: 
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    System.out.println("Você tem 2 erros!");
-                    System.out.println("  O  \n  |");
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    break;
-                    
-                case 3:
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    System.out.println("Você tem 3 erros!");
-                    System.out.println("  O  \n /|");
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    break;
-                    
-                case 4:
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    System.out.println("Você tem 4 erros: ");
-                    System.out.println("  O  \n /|\\");
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    break;
-                    
-                case 5: 
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    System.out.println("Você tem 5 erros: ");
-                    System.out.println("  O  \n /|\\ \n / ");
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    break;
-                    
-                case 6:
-                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-                    System.out.println("Você tem 6 erros!");
-                    System.out.println("  O  \n /|\\ \n / \\");
-                    break;
-            }
+            telaInfos.mostrarBoneco(dados.getQuantidadeErros());
             
+            
+            // Mostrar como a palavra está após o usuário digitar uma letra
             for(int i = 0; i<dados.getPalavraAtual().length(); i++) {
                 
                 if(palavraTracejadaChar[i] == '_')
@@ -149,6 +108,7 @@ public class Main {
                 }
             }
             
+            // Se não há mais linhas tracejadas, a palavra está completa.
             if(!isHaLetraTracejada) {
                 
                 System.out.printf("\nPalavra: ");
@@ -161,6 +121,7 @@ public class Main {
                 MensagemEncerramento.exibirMensagemEncerramentoPrograma();
                 isRunning = false;
             }
+            // Se ele chegou a 6 erros, o programa para.
             else if(dados.getQuantidadeErros() ==6) {
                 MensagemEncerramento.exibirMensagemEncerramentoPrograma();
                 isRunning = false;
