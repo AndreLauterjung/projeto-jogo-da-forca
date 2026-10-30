@@ -1,5 +1,6 @@
 package com.github.andrelauterjung.jogo.forca.app;
 
+import com.github.andrelauterjung.jogo.forca.view.LinhasDivisorias;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 
 import java.util.Scanner;
@@ -24,9 +25,7 @@ public class Main {
         String palavraAtual = "";
         int quantidadeLetras = 0;
         int quantidadeErro = 0;
-        
-        boolean isHaLetraTracejada = false;
-        boolean isLetraNaPalavra = false;
+
         boolean isRunning = false;
         
         
@@ -61,6 +60,11 @@ public class Main {
         isRunning = true;
         while(isRunning)
         {
+            boolean isHaLetraTracejada = false;
+            boolean isLetraNaPalavra = false;
+            
+            
+            
             /* Este loop serve para mostrar palavra atual de forma tracejada (exemplo: _ _ _ _ _ _ _)*/
             System.out.printf("\nPalavra: ");
             for(int i = 0; i < palavraArrayChar.length; i++)
@@ -79,56 +83,88 @@ public class Main {
                 if(palavraArrayChar[i] == letraDigitada) {
                     
                     isLetraNaPalavra = true;
-                    palavraTracejadaChar[i] = letraDigitada;
-                    
-                }
-                else if(!isLetraNaPalavra) {
-                    
-                    System.out.println("\nNão tem essa letra na palavra!");
+                    palavraTracejadaChar[i] = letraDigitada;  
                 }
             }
             
-            //quantidadeErro++;
-
+            if(isLetraNaPalavra == false) {
+                System.out.println("A letra não está na palavra!");
+                quantidadeErro++;
+            }
+            
+ 
             switch(quantidadeErro) {
                 
                 case 0:
-                    System.out.println("Você tem 0 erros!");
                     break;
                     
-                case 1: 
+                case 1:
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     System.out.println("Você tem 1 erro!");
                     System.out.println("  O  ");
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     break;
                     
                 case 2: 
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     System.out.println("Você tem 2 erros!");
                     System.out.println("  O  \n  |");
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     break;
                     
                 case 3:
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     System.out.println("Você tem 3 erros!");
                     System.out.println("  O  \n /|");
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     break;
                     
                 case 4:
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     System.out.println("Você tem 4 erros: ");
                     System.out.println("  O  \n /|\\");
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     break;
                     
                 case 5: 
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     System.out.println("Você tem 5 erros: ");
                     System.out.println("  O  \n /|\\ \n / ");
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     break;
                     
                 case 6:
+                    LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
                     System.out.println("Você tem 6 erros!");
                     System.out.println("  O  \n /|\\ \n / \\");
-                    
-                    MensagemEncerramento.exibirMensagemEncerramentoPrograma();
-                    isRunning = false;
                     break;
             }
+            
+            for(int i = 0; i<palavraAtual.length(); i++) {
+                
+                if(palavraTracejadaChar[i] == '_')
+                {
+                     isHaLetraTracejada = true;
+                }
+            }
+            
+            if(!isHaLetraTracejada) {
+                
+                System.out.printf("\nPalavra: ");
+                for(int i = 0; i < palavraArrayChar.length; i++)
+                {
+                    System.out.printf("%c ", palavraTracejadaChar[i]);
+                }
+                System.out.println("");
+                
+                MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+                isRunning = false;
+            }
+            else if(quantidadeErro ==6) {
+                MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+                isRunning = false;
+            }
+            
         }
 
     }
