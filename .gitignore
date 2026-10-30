@@ -27,8 +27,7 @@ dist/
 .vscode/
 
 # Configurações privadas do NetBeans (IMPORTANTE: MANTÉM nbproject/ MAS IGNORA nbproject/private/)
-nbproject/private/
-
+**/nbproject/private/
 # Arquivos temporários do sistema operacional
 .DS_Store
 Thumbs.db
