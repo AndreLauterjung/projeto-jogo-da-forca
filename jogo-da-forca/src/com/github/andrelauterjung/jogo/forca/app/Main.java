@@ -23,6 +23,9 @@ public class Main {
         int quantidadeLetras = -1;
         int quantidadeErro = 0;
         
+        boolean isLetraNaPalavra = false;
+        boolean isRunning = false;
+        
         
         palavras.add("Abobora");
         
@@ -76,62 +79,94 @@ public class Main {
         
         
         
-        
-        
-        System.out.println("\n================ JOGO DA FORCA ===================");
-        
-        // Cabeça (1 erro)
-        System.out.println("  O  ");
-        System.out.println("");
-        
-        // Cabeça e tronco (2 erros)
-        System.out.println("  O  \n  |");
-        System.out.println("");
-        
-        // Cabeça, braço esq., tronco (3 erros)
-        System.out.println("  O  \n /|");
-        System.out.println("");
-        
-        // Cabeça, braço esq., tronco, braço dir. (4 erros)
-        System.out.println("  O  \n /|\\");
-        System.out.println("");
+        isRunning = true;
+        while(isRunning)
+        {
+            System.out.println("\n================ JOGO DA FORCA ===================");
 
-        // Cabeça, braço esq., tronco, braço dir., perna esq (5 erros)
-        System.out.println("  O  \n /|\\ \n / ");
-        System.out.println("");
-        
-        // corpo todo (6 erros)
-        System.out.println("  O  \n /|\\ \n / \\");
-        
-        // Mostrar as linhas tracejadas do array palavra tracejada char
-        System.out.printf("\nPalavra: ");
-        for(int i = 0; i < palavraArrayChar.length; i++) {
-            
-            System.out.printf("%c ", palavraTracejadaChar[i]);
-        }
-        
-        
-        System.out.println("\nDigite uma letra: ");
-        char letraDigitada = sc.nextLine().charAt(0);
-        
-        for(int i = 0; i < palavraAtual.length(); i++) {
-            
-            /*Se na palavra contém a letra, substitui o _ pela letra digitada*/
-            if(palavraArrayChar[i] == letraDigitada) {
+            switch(quantidadeErro) {
                 
-                palavraTracejadaChar[i] = letraDigitada;
+                case 0:
+                    System.out.println("Você tem 0 erros!");
+                    break;
+                    
+                case 1: 
+                    System.out.println("Você tem 1 erro!");
+                    System.out.println("  O  ");
+                    break;
+                    
+                case 2: 
+                    System.out.println("Você tem 2 erros!");
+                    System.out.println("  O  \n  |");
+                    break;
+                    
+                case 3: 
+                    System.out.println("Você tem 3 erros!");
+                    System.out.println("  O  \n /|");
+                    break;
+                    
+                case 4:
+                    System.out.println("Você tem 4 erros: ");
+                    System.out.println("  O  \n /|\\");
+                    break;
+                    
+                case 5: 
+                    System.out.println("Você tem 5 erros: ");
+                    System.out.println("  O  \n /|\\ \n / ");
+                    break;
+                    
+                case 6:
+                    System.out.println("Você tem 6 erros!");
+                    System.out.println("  O  \n /|\\ \n / \\");
+                    
+                    // mensagem encerramento programa
+                    // fechamento do loop while
+                    break;
             }
-        }
-        
-        System.out.printf("\nPalavra: ");
-        for(int i = 0; i < palavraArrayChar.length; i++) {
+
             
-            System.out.printf("%c ", palavraTracejadaChar[i]);
+
+            // Mostrar as linhas tracejadas do array palavra tracejada char
+            System.out.printf("\nPalavra: ");
+            for(int i = 0; i < palavraArrayChar.length; i++) {
+
+                System.out.printf("%c ", palavraTracejadaChar[i]);
+            }
+
+
+            System.out.println("\nDigite uma letra: ");
+            char letraDigitada = sc.nextLine().charAt(0);
+
+            for(int i = 0; i < palavraAtual.length(); i++) {
+
+                /*Se na palavra contém a letra, substitui o _ pela letra digitada*/
+                if(palavraArrayChar[i] == letraDigitada) {
+                    
+                    isLetraNaPalavra = true;
+                    palavraTracejadaChar[i] = letraDigitada;
+                    
+                }
+                else if(isLetraNaPalavra == false) {
+                    
+                    System.out.println("\nNão tem essa letra na palavra!");
+                    quantidadeErro++;
+                }
+            }
+            
+            System.out.println("Quantidade de erros: "+quantidadeErro);
+            
+            
+            System.out.printf("\nPalavra: ");
+            for(int i = 0; i < palavraArrayChar.length; i++) {
+
+                System.out.printf("%c ", palavraTracejadaChar[i]);
+            }
+
+
+            System.out.println("\n==================================================");
+            System.out.println("Programa encerrado!");
+            System.out.println("==================================================");
         }
         
-        
-        System.out.println("\n==================================================");
-        System.out.println("Programa encerrado!");
-        System.out.println("==================================================");
     }
 }
