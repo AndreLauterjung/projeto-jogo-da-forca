@@ -75,7 +75,7 @@ public class Main {
 
 
             System.out.println("\nDigite uma letra: ");
-            char letraDigitada = sc.nextLine().charAt(0);
+            char letraDigitada = sc.nextLine().toLowerCase().charAt(0);
 
             for(int i = 0; i < palavraAtual.length(); i++) {
 
