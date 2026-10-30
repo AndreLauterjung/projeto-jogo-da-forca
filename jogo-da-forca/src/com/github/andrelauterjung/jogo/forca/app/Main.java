@@ -1,5 +1,7 @@
 package com.github.andrelauterjung.jogo.forca.app;
 
+import com.github.andrelauterjung.jogo.forca.logic.EntradaDados;
+import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.LinhasDivisorias;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 
@@ -14,6 +16,8 @@ public class Main {
     
     public static void main(String[] args) {
         
+        EntradaDados entradaDados = new EntradaDados();
+        DadosJogo dados = new DadosJogo();
         Scanner sc = new Scanner(System.in);
         
         // Listas
@@ -22,32 +26,27 @@ public class Main {
         char palavraTracejadaChar[];
         
         // Variáveis
-        String palavraAtual = "";
-        int quantidadeLetras = 0;
-        int quantidadeErro = 0;
-
         boolean isRunning = false;
-        
+        int qtdErros = 0;
         
         palavras.add("Abobora");
         
         /* Atualiza palavra atual conforme o programa rode*/
         for(int i = 0; i < palavras.size(); i++) {
             
-            palavraAtual = palavras.get(i).toLowerCase();
-            quantidadeLetras = palavraAtual.length();
+            dados.setPalavraAtual(palavras.get(i).toLowerCase());
+            dados.setQuantidadeLetras(dados.getPalavraAtual().length());
         }
 
-        // cada letra fica em uma posição do char: Exemplo: a[0], b[1], c[3]
-        palavraArrayChar = new char[quantidadeLetras];
-        for(int i= 0; i < palavraAtual.length(); i++) {
+        palavraArrayChar = new char[dados.getQuantidadeLetras()];
+        /* Cada letra da palavra é adicionada em uma posição do Array de Char. */
+        for(int i= 0; i < dados.getPalavraAtual().length(); i++) {
 
-            /* Cada letra da palavra é adicionada em uma posição do Array de Char. */
-            palavraArrayChar[i] = palavraAtual.charAt(i);
+            palavraArrayChar[i] = dados.getPalavraAtual().charAt(i);
         }
         
         
-        palavraTracejadaChar = new char[quantidadeLetras];
+        palavraTracejadaChar = new char[dados.getQuantidadeLetras()];
         //Loop para fazer a palavra "tracejada": Exemplo: _ _ _ _ _ _ _
         for(int i = 0; i < palavraArrayChar.length; i++) {
             
@@ -74,10 +73,10 @@ public class Main {
             System.out.println("");
 
 
-            System.out.println("\nDigite uma letra: ");
-            char letraDigitada = sc.nextLine().toLowerCase().charAt(0);
+            // Aqui ficava a entrada de dados da classe Main (Comentário para facilitar a minha localização durante o código)
+            char letraDigitada = entradaDados.entradaDados(sc);
 
-            for(int i = 0; i < palavraAtual.length(); i++) {
+            for(int i = 0; i < dados.getQuantidadeLetras(); i++) {
 
                 /*Se na palavra contém a letra, substitui o _ pela letra digitada*/
                 if(palavraArrayChar[i] == letraDigitada) {
@@ -87,13 +86,15 @@ public class Main {
                 }
             }
             
+            
             if(isLetraNaPalavra == false) {
                 System.out.println("A letra não está na palavra!");
-                quantidadeErro++;
+                
+                //qtdErros++;
+                dados.setQuantidadeErros(++qtdErros);
             }
-            
  
-            switch(quantidadeErro) {
+            switch(dados.getQuantidadeErros()) {
                 
                 case 0:
                     break;
@@ -140,7 +141,7 @@ public class Main {
                     break;
             }
             
-            for(int i = 0; i<palavraAtual.length(); i++) {
+            for(int i = 0; i<dados.getPalavraAtual().length(); i++) {
                 
                 if(palavraTracejadaChar[i] == '_')
                 {
@@ -160,7 +161,7 @@ public class Main {
                 MensagemEncerramento.exibirMensagemEncerramentoPrograma();
                 isRunning = false;
             }
-            else if(quantidadeErro ==6) {
+            else if(dados.getQuantidadeErros() ==6) {
                 MensagemEncerramento.exibirMensagemEncerramentoPrograma();
                 isRunning = false;
             }
