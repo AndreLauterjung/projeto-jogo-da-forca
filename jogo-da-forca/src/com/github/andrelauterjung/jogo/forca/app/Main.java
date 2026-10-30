@@ -41,17 +41,9 @@ public class Main {
 
         // cada letra fica em uma posição do char: Exemplo: a[0], b[1], c[3]
         palavraArrayChar = new char[quantidadeLetras];
-
         for(int i= 0; i < palavraAtual.length(); i++) {
 
-            /*A posição i, recebe o caracter da posição 1 da palavra*/
-            palavraArrayChar[i] = palavraAtual.charAt(i);
-            
-        }
-
-        for(int i= 0; i < palavraAtual.length(); i++) {
-
-            /*A posição i, recebe o caracter da posição 1 da palavra*/
+            /* Cada letra da palavra é adicionada em uma posição do Array de Char. */
             palavraArrayChar[i] = palavraAtual.charAt(i);
         }
         
@@ -63,13 +55,6 @@ public class Main {
             palavraTracejadaChar[i] = '_';
         }
         
-        /*
-        // Mostrar a palavra no array de char
-        for(int i = 0; i < palavraArrayChar.length; i++) {
-            
-            System.out.println(palavraArrayChar[i]);
-            
-        } */
         
         
         System.out.println("\n================ JOGO DA FORCA ===================");
@@ -121,7 +106,7 @@ public class Main {
                     System.out.println("  O  \n  |");
                     break;
                     
-                case 3:               quantidadeErro++;
+                case 3:
                     System.out.println("Você tem 3 erros!");
                     System.out.println("  O  \n /|");
                     break;
@@ -145,6 +130,6 @@ public class Main {
                     break;
             }
         }
-        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+
     }
 }
