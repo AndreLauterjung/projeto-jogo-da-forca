@@ -3,7 +3,6 @@ package com.github.andrelauterjung.jogo.forca.app;
 import com.github.andrelauterjung.jogo.forca.logic.EntradaDados;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
-import com.github.andrelauterjung.jogo.forca.view.LinhasDivisorias;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 
 import java.util.Scanner;
@@ -55,9 +54,8 @@ public class Main {
             palavraTracejadaChar[i] = '_';
         }
         
+        TelaJogo.mensagemJogoDaForca();
         
-        
-        System.out.println("\n================ JOGO DA FORCA ===================");
         isRunning = true;
         while(isRunning)
         {

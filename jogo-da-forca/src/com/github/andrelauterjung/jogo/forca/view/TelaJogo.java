@@ -7,6 +7,13 @@ package com.github.andrelauterjung.jogo.forca.view;
 public class TelaJogo
 {
     
+    public static void mensagemJogoDaForca() {
+        
+        System.out.println("\n=====================================================");
+        System.out.println("================= JOGO DA FORCA =====================");
+        System.out.println("=====================================================");
+    }
+    
     public static void mensagemDigitarLetra() {
         
         System.out.println("\nDigite uma letra: ");
