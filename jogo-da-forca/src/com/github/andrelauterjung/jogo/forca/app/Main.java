@@ -121,7 +121,7 @@ public class Main {
                 MensagemEncerramento.exibirMensagemEncerramentoPrograma();
                 isRunning = false;
             }
-            // Se ele chegou a 6 erros, o programa para.
+            // Se ele chegou aos 6 erros, o programa para.
             else if(dados.getQuantidadeErros() ==6) {
                 MensagemEncerramento.exibirMensagemEncerramentoPrograma();
                 isRunning = false;
