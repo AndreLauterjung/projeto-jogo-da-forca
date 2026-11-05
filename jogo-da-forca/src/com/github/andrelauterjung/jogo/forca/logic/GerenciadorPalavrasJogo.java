@@ -12,16 +12,11 @@ import java.util.ArrayList;
  */
 public class GerenciadorPalavrasJogo {
     
-    MensagemEncerramento encerramento = new MensagemEncerramento();
     TelaJogo tela = new TelaJogo();
     ListaPalavras listaPalavras = new ListaPalavras();
     
     private DadosJogo dados;
     private PalavraAtualArray palavraAtualArray;
-    
-    
-    char palavraArrayChar[];
-    char palavraTracejadaChar[];
     
     public GerenciadorPalavrasJogo(DadosJogo dados) {
         this.dados = dados;

@@ -14,6 +14,14 @@ public class TelaJogo
         System.out.println("=====================================================");
     }
     
+    public static void menuOpcoes(){
+        System.out.println("Digite o número da opção: ");
+        System.out.println("0 - Encerrar Programa.");
+        System.out.println("1 - Nova Rodada.");
+    }
+    
+    
+    
     public static void mensagemDigitarLetra() {
         
         System.out.println("\nDigite uma letra: ");
