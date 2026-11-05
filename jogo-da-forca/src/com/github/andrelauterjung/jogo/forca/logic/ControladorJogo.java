@@ -1,6 +1,7 @@
 package com.github.andrelauterjung.jogo.forca.logic;
 
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
+import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import java.util.Scanner;
 /**
@@ -15,30 +16,61 @@ public class ControladorJogo
     
     Scanner sc = new Scanner(System.in);
     boolean isRunning = false;
+    boolean isProgramaFuncionando = false;
     
+    int rodada = 0;
 
     
     public void iniciarJogo() {
         
-        
-        gerenciador.atualizarPalavraAtualListas();
-        TelaJogo.mensagemJogoDaForca();
-        
-        isRunning = true;
-        while(isRunning) {
+        //onde será mostrado o menu.
+        isProgramaFuncionando = true;
+        while(isProgramaFuncionando) {
             
-            gerenciador.mostrarBoneco(dados);
+            gerenciador.atualizarPalavraAtualListas();
+            TelaJogo.mensagemJogoDaForca();
             
-            gerenciador.mostrarPalavraTracejada();
+            menuOpcoes(sc);
             
-            char letraDigitada = entradaDados.entradaDados(sc);
-            
-            gerenciador.verificarLetraNaPalavra(letraDigitada);
-             
-            isRunning = gerenciador.isEncerrarPrograma();
-            
-        } // Fechamento Loop While
+            // System.out.println(TelaJogo.mensagemRodada()+(++rodada));
+            while(isRunning) {
+                    
+                    gerenciador.mostrarBoneco(dados);
 
-    } // Fechamento do método iniciarJogo().
+                    gerenciador.mostrarPalavraTracejada();
+
+                    char letraDigitada = entradaDados.entradaDados(sc);
+
+                    gerenciador.verificarLetraNaPalavra(letraDigitada);
+
+                    isRunning = gerenciador.isEncerrarPrograma();
+
+                } // Fechamento Loop While
+
+            } // Fechamento do método iniciarJogo().
+        }
+        
+        
+        
+        
+        
      
+    
+    public void menuOpcoes(Scanner sc) {
+        TelaJogo.menuOpcoes();
+        int opcaoDigitadaMenu = sc.nextInt();
+        sc.nextLine();
+        
+        if(opcaoDigitadaMenu == 0) {
+            
+            isProgramaFuncionando = false;
+            isRunning = false;
+            MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+            
+        }
+        else if(opcaoDigitadaMenu == 1) {
+            
+            isRunning = true;
+        }
+    }
 } // Fechamento da classe.

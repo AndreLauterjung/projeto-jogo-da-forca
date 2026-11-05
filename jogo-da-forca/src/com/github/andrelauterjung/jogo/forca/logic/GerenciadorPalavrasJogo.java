@@ -3,7 +3,7 @@ package com.github.andrelauterjung.jogo.forca.logic;
 import com.github.andrelauterjung.jogo.forca.model.ListaPalavras;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
-import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 /**
@@ -39,7 +39,6 @@ public class GerenciadorPalavrasJogo {
 
     }
     
-    
     public void verificarLetraNaPalavra(char letra) {
         
         palavraAtualArray.isLetraAtualPalavra(letra);
@@ -48,12 +47,11 @@ public class GerenciadorPalavrasJogo {
     public void mostrarPalavraTracejada() {
         palavraAtualArray.mostrarPalavraLinhaTracejada();
     }
-    
+
     public void mostrarBoneco(DadosJogo dados) {
         
         tela.mostrarBoneco(dados.getQuantidadeErros());
     }
-    
     
     public boolean isEncerrarPrograma() {
         boolean isProgramaEnd = true;

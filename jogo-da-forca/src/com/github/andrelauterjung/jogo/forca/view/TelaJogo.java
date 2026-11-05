@@ -14,6 +14,11 @@ public class TelaJogo
         System.out.println("=====================================================");
     }
     
+    public static String mensagemRodada() {
+        
+        return "Rodada: ";
+    }
+    
     public static void menuOpcoes(){
         System.out.println("Digite o número da opção: ");
         System.out.println("0 - Encerrar Programa.");
