@@ -17,6 +17,7 @@ public class GerenciadorPalavrasJogo {
     
     private DadosJogo dados;
     private PalavraAtualArray palavraAtualArray;
+    private int numeroRodada = 0;
     
     public GerenciadorPalavrasJogo(DadosJogo dados) {
         this.dados = dados;
@@ -51,6 +52,17 @@ public class GerenciadorPalavrasJogo {
     public void mostrarBoneco(DadosJogo dados) {
         
         tela.mostrarBoneco(dados.getQuantidadeErros());
+    }
+
+    /* Metodo que atualiza o número da rodada */
+    public void contagemRodada() {
+        int qtdPalavras = getLengthSizePalavras();
+        
+        if(qtdPalavras > 0) {
+            ++numeroRodada;
+            
+            System.out.println(TelaJogo.mensagemRodada()+numeroRodada);
+        }
     }
     
     public boolean isEncerrarPrograma() {

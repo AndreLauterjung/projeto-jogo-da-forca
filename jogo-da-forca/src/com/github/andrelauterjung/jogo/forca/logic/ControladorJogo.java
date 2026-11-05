@@ -18,9 +18,6 @@ public class ControladorJogo
     boolean isRunning = false;
     boolean isProgramaFuncionando = false;
     
-    int rodada = 0;
-
-    
     public void iniciarJogo() {
         
         //onde será mostrado o menu.
@@ -31,8 +28,7 @@ public class ControladorJogo
             TelaJogo.mensagemJogoDaForca();
             
             menuOpcoes(sc);
-            
-            // System.out.println(TelaJogo.mensagemRodada()+(++rodada));
+           
             while(isRunning) {
                     
                     gerenciador.mostrarBoneco(dados);
@@ -70,6 +66,7 @@ public class ControladorJogo
         }
         else if(opcaoDigitadaMenu == 1) {
             
+            gerenciador.contagemRodada();
             isRunning = true;
         }
     }
