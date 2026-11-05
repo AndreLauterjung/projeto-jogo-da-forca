@@ -30,7 +30,7 @@ public class GerenciadorPalavrasJogo {
     /* Atualiza palavra atual conforme as rodadas do jogo vão acontecendo. */
     public void atualizarPalavraAtualListas() {
         
-        this.dados.setPalavraAtual(palavras.get(2).toLowerCase());
+        this.dados.setPalavraAtual(palavras.get(0).toLowerCase());
         this.dados.setQuantidadeLetras(this.dados.getPalavraAtual().length());
         
         palavraAtualArray.adicionarPalavraArrayChar();
@@ -68,6 +68,10 @@ public class GerenciadorPalavrasJogo {
         return isProgramaEnd;
     }
     
-    
+    /* Método Getter para retornar a quantidade de palavras na lista */
+    public int getLengthSizePalavras() {
+        
+        return palavras.size();
+    }
     
 }
