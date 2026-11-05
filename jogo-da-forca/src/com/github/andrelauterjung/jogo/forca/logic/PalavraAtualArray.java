@@ -1,11 +1,14 @@
 package com.github.andrelauterjung.jogo.forca.logic;
 
+import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 /**
  *
  * @author andrelauterjung
  */
 public class PalavraAtualArray {
+    
+    MensagemErro mensagemErro = new MensagemErro();
     
     private DadosJogo dados;
     char[] palavraArrayChar;
@@ -78,7 +81,7 @@ public class PalavraAtualArray {
         }
         
         if(letraErrada) {
-            System.out.println("\nERRO! A letra não está na palavra!");
+            mensagemErro.mensagemLetraErrada();
             dados.setQuantidadeErros(++qtdErros);
         }
     }
