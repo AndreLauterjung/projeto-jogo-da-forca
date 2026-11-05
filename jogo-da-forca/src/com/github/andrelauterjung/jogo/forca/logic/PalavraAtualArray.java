@@ -10,7 +10,7 @@ public class PalavraAtualArray {
     private DadosJogo dados;
     char[] palavraArrayChar;
     char[]  palavraTracejadaChar;
-
+    private int qtdErros = 0;
     
     public PalavraAtualArray(DadosJogo dados) {
         this.dados = dados;
@@ -46,20 +46,48 @@ public class PalavraAtualArray {
             System.out.println("");
     }
    
-    public boolean isLetraAtualPalavra(char letra) {
-        boolean isLetraNaPalavra = false;
+    /* Método onde substitui uma linha tracejada pela letra.
+    
+    Como funciona: 
+    
+    SE uma letra for igual a letra da posição i de uma palavra, como a palavra é a mesma palavra da linha
+    tracejada (_ _ _ _...) vai substituir o _ referente a posição da letra na palavra. 
+    
+    SE a letra estiver na posição 3 de uma palavra, o terceiro traço vai ser substituido pela letra.
+    
+    SE a letra digitada pelo usuário estiver na palavra, a variável boolean "letraErrada" muda o valor para false, pois
+    não foi digitada uma letra errada. 
+    
+    Porém, se o usuário digitar uma letra errada, o valor da variável boolean "letraErrada" continua true, e essa
+    variável será utilizada para contar ou não erros.
+    
+    SE ele digitar uma letra errada, ou seja, a letra digitada não está na palavra, "letraErrada" continua true.
+    SE "letraErrada" for true, é incrementado + 1 na quantidade de erros.
+    
+    */
+    public void isLetraAtualPalavra(char letra) {
+        boolean letraErrada = true;
         
         for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
-            
+
             if(palavraArrayChar[i] == letra) {
                 
+                letraErrada = false;
                 palavraTracejadaChar[i] = letra;
-                isLetraNaPalavra = true;
             }
         }
-        return isLetraNaPalavra;
+        
+        if(letraErrada) {
+            System.out.println("\nERRO! A letra não está na palavra!");
+            dados.setQuantidadeErros(++qtdErros);
+        }
     }
     
+    /* SE não tiver letra tracejada, retorna False
+    SE tiver alguma letra tracejada, retorna True
+    
+    Método utilizado para parar o loop e encerrar quando não houver mais linhas tracejadas
+    */
     public boolean isLetraTracejada() {
         boolean isLetraTracejada = false;
         

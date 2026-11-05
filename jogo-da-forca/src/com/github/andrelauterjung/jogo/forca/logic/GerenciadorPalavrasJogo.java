@@ -19,6 +19,7 @@ public class GerenciadorPalavrasJogo {
     private DadosJogo dados;
     private PalavraAtualArray palavraAtualArray;
     
+    
     char palavraArrayChar[];
     char palavraTracejadaChar[];
     
@@ -44,15 +45,14 @@ public class GerenciadorPalavrasJogo {
     }
     
     
-    public boolean verificarLetraNaPalavra(char letra) {
+    public void verificarLetraNaPalavra(char letra) {
         
-        return palavraAtualArray.isLetraAtualPalavra(letra);
+        palavraAtualArray.isLetraAtualPalavra(letra);
     }
             
     public void mostrarPalavraTracejada() {
         palavraAtualArray.mostrarPalavraLinhaTracejada();
     }
-    
     
     public void mostrarBoneco(DadosJogo dados) {
         
@@ -60,7 +60,7 @@ public class GerenciadorPalavrasJogo {
     }
     
     
-     public boolean isEncerrarPrograma() {
+    public boolean isEncerrarPrograma() {
         boolean isProgramaEnd = true;
         
         if(palavraAtualArray.isLetraTracejada() == false) {
@@ -69,6 +69,7 @@ public class GerenciadorPalavrasJogo {
         }
         else if(dados.getQuantidadeErros() == 6)
         {
+            tela.mostrarBoneco(dados.getQuantidadeErros());
             isProgramaEnd = false;
         }
         return isProgramaEnd;
