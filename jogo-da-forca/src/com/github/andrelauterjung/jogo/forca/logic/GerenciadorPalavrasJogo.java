@@ -3,7 +3,6 @@ package com.github.andrelauterjung.jogo.forca.logic;
 import com.github.andrelauterjung.jogo.forca.model.ListaPalavras;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
-import java.util.Scanner;
 
 import java.util.ArrayList;
 /**
@@ -59,24 +58,50 @@ public class GerenciadorPalavrasJogo {
         int qtdPalavras = getLengthSizePalavras();
         
         if(qtdPalavras > 0) {
-            ++numeroRodada;
+            ++this.numeroRodada;
             
             System.out.println(TelaJogo.mensagemRodada()+numeroRodada);
         }
     }
     
-    public boolean isEncerrarPrograma() {
-        boolean isProgramaEnd = true;
-        
+    public void resetarPalavra() {
         if(palavraAtualArray.isLetraTracejada() == false) {
             mostrarPalavraTracejada();
+            
+            palavras.remove(0);
+            dados.setPalavraAtual("");
+            dados.setQuantidadeErros(0);
+            dados.setQuantidadeLetras(0);
+        }
+    }
+    
+    public boolean encerrarPrograma() {
+        boolean encerrarProgramaGeral = true;
+        
+        int qtdPalavras = getLengthSizePalavras();
+        if(qtdPalavras == 0) {
+            
+            encerrarProgramaGeral = false;
+        }
+        
+        return encerrarProgramaGeral;
+    }
+    
+    public boolean encerrarRodada() {
+        boolean isProgramaEnd = true;
+ 
+        /* SE não houver mais traços na palavra tracejada, ou seja, está com todas as letras preenchidas,
+        a palavra atual é removida da lista de palavras e as variáveis são resetadas. */
+        if(palavraAtualArray.isLetraTracejada() == false) {
             isProgramaEnd = false;
+            resetarPalavra();
         }
         else if(dados.getQuantidadeErros() == 6)
         {
             tela.mostrarBoneco(dados.getQuantidadeErros());
             isProgramaEnd = false;
         }
+        
         return isProgramaEnd;
     }
     
