@@ -13,7 +13,6 @@ public class PalavraAtualArray {
     private DadosJogo dados;
     char[] palavraArrayChar;
     char[]  palavraTracejadaChar;
-    private int qtdErros = 0;
     
     public PalavraAtualArray(DadosJogo dados) {
         this.dados = dados;
@@ -82,7 +81,7 @@ public class PalavraAtualArray {
         
         if(letraErrada) {
             mensagemErro.mensagemLetraErrada();
-            dados.setQuantidadeErros(++qtdErros);
+            dados.atualizaQuantidadeErros(1);
         }
     }
     

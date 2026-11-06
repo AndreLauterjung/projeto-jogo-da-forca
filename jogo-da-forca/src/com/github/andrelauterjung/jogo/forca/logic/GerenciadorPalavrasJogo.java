@@ -70,7 +70,7 @@ public class GerenciadorPalavrasJogo {
             
             palavras.remove(0);
             dados.setPalavraAtual("");
-            dados.setQuantidadeErros(0);
+            dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
         }
     }

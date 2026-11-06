@@ -40,7 +40,12 @@ public class DadosJogo {
             this.quantidadeLetras = quantidadeLetras;
         }
         
-        public void setQuantidadeErros(int erros) {
-            this.quantidadeErro = erros;
+        public void atualizaQuantidadeErros(int erros) {
+            this.quantidadeErro += erros;
+        }
+        
+        public void zeraQuantidadeErros()
+        {
+            this.quantidadeErro = 0;
         }
 }
