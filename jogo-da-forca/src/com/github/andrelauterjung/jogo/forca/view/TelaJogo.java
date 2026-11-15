@@ -15,12 +15,12 @@ public class TelaJogo
     }
     
     public static String mensagemRodada() {
-        
+        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
         return "Rodada: ";
     }
     
     public static void menuOpcoes(){
-        System.out.println("Digite o número da opção: ");
+        System.out.println("\nDigite o número da opção: \n");
         System.out.println("0 - Encerrar Programa.");
         System.out.println("1 - Nova Rodada.");
     }
@@ -28,7 +28,7 @@ public class TelaJogo
     
     
     public static void mensagemDigitarLetra() {
-        
+        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
         System.out.println("\nDigite uma letra: ");
     }
     

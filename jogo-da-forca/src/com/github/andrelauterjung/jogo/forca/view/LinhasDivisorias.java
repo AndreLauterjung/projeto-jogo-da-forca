@@ -8,7 +8,7 @@ public class LinhasDivisorias{
     
     public static void exibirLinhaDivisoriaSinalIgual() {
         
-        System.out.println("\n==================================================");
+        System.out.println("\n=====================================================");
     }
     
     
