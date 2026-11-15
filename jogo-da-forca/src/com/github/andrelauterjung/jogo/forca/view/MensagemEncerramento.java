@@ -8,8 +8,8 @@ public class MensagemEncerramento {
     
     public static void exibirMensagemEncerramentoPrograma() {
         
-        System.out.println("\n==================================================");
-        System.out.println("Programa encerrado!");
-        System.out.println("==================================================");
+        System.out.println("\n=====================================================");
+        System.out.println("================ PROGRAMA ENCERRADO! ================");
+        System.out.println("=====================================================");
     }
 }
