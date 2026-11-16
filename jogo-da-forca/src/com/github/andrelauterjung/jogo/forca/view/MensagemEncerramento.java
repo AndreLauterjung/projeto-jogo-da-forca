@@ -12,4 +12,12 @@ public class MensagemEncerramento {
         System.out.println("================ PROGRAMA ENCERRADO! ================");
         System.out.println("=====================================================");
     }
+    
+    public static void exibirMensagemEncerramentoProgramaLimitePalavras() {
+        
+        System.out.println("\n=====================================================");
+        System.out.println("============= FIM DA LISTA DE PALAVRAS! =============");
+        System.out.println("================ PROGRAMA ENCERRADO! ================");
+        System.out.println("=====================================================");
+    }
 }

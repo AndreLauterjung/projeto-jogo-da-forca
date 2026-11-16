@@ -2,6 +2,7 @@ package com.github.andrelauterjung.jogo.forca.logic;
 
 import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
+import java.util.ArrayList;
 /**
  *
  * @author andrelauterjung
@@ -13,6 +14,8 @@ public class PalavraAtualArray {
     private DadosJogo dados;
     char[] palavraArrayChar;
     char[]  palavraTracejadaChar;
+    char[] letrasDigitadas = new char[26];
+    int contadorLetraErrada = 0;
     
     public PalavraAtualArray(DadosJogo dados) {
         this.dados = dados;
@@ -69,19 +72,41 @@ public class PalavraAtualArray {
     */
     public void isLetraAtualPalavra(char letra) {
         boolean letraErrada = true;
-        
-        for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
+        boolean isJaFoiDigitada = false;
 
-            if(palavraArrayChar[i] == letra) {
-                
-                letraErrada = false;
-                palavraTracejadaChar[i] = letra;
+        for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
+            
+            if(letrasDigitadas[i] == letra) {
+                isJaFoiDigitada = true;
             }
         }
         
-        if(letraErrada) {
-            mensagemErro.mensagemLetraErrada();
-            dados.atualizaQuantidadeErros(1);
+        /* Se a letra já foi digitada, não conta como erro. */
+        if(isJaFoiDigitada) {
+            
+            System.out.println("A letra já foi digitada!");
+        }
+        /* se a letra não foi digitada, roda o else. 
+        A letra é adicionada numa posição do char[] letrasDigitadas e o contador é incrementado
+        O contador é incrementado para que cada letra fique em uma posição diferente.
+        */ 
+        else {
+            
+            letrasDigitadas[contadorLetraErrada] = letra;
+            contadorLetraErrada++;
+            
+            for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
+
+                if(palavraArrayChar[i] == letra) {
+
+                    letraErrada = false;
+                    palavraTracejadaChar[i] = letra;
+                }
+            }
+            if(letraErrada) {
+                mensagemErro.mensagemLetraErrada();
+                dados.atualizaQuantidadeErros(1);
+            }
         }
     }
     
@@ -103,4 +128,12 @@ public class PalavraAtualArray {
         return isLetraTracejada;
     }
 
+    public void mostrarLetrasDigitadas() {
+        String frase = "";
+        
+        for(int i = 0; i < letrasDigitadas.length; i++) {
+            frase += letrasDigitadas[i];
+        }
+        System.out.println("\nLetras digitadas: "+frase);
+    }
 }

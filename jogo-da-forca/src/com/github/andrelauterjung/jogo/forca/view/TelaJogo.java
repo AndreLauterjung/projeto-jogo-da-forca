@@ -34,44 +34,39 @@ public class TelaJogo
     
     
     public static void bonecoUmErro() {
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        System.out.println("Você tem 1 erro!");
+        System.out.println("\nVocê tem 1 erro!");
         System.out.println("  O  ");
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
+        LinhasDivisorias.exibirLinhaExclamacao();
     }
     
      public static void bonecoDoisErros() {
-         LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        System.out.println("Você tem 2 erros!");
+        System.out.println("\nVocê tem 2 erros!");
         System.out.println("  O  \n  |");
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
+        LinhasDivisorias.exibirLinhaExclamacao();
      }
      
      public static void bonecoTresErros() {
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        System.out.println("Você tem 3 erros!");
+        System.out.println("\nVocê tem 3 erros!");
         System.out.println("  O  \n /|");
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
+        LinhasDivisorias.exibirLinhaExclamacao();
      }
      
      public static void bonecoQuatroErros() {
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        System.out.println("Você tem 4 erros: ");
+        System.out.println("\nVocê tem 4 erros: ");
         System.out.println("  O  \n /|\\");
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
+        LinhasDivisorias.exibirLinhaExclamacao();
      }
      
      public static void bonecoCincoErros() {
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        System.out.println("Você tem 5 erros: ");
+        System.out.println("\nVocê tem 5 erros: ");
         System.out.println("  O  \n /|\\ \n / ");
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
+        LinhasDivisorias.exibirLinhaExclamacao();
      }
      
      public static void bonecoSeisErros() {
-        LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        System.out.println("Você tem 6 erros!");
+        System.out.println("\nVocê tem 6 erros!");
         System.out.println("  O  \n /|\\ \n / \\");
+        LinhasDivisorias.exibirLinhaExclamacao();
      }
      
      public void mostrarBoneco(int erros) {

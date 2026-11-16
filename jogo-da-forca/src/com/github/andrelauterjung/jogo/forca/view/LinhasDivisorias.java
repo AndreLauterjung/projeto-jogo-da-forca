@@ -14,7 +14,7 @@ public class LinhasDivisorias{
     
     public static void exibirLinhaExclamacao() {
         
-        System.out.println("! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !");
+        System.out.println("! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !");
     }
     
 }
