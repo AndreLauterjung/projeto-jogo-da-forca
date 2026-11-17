@@ -2,7 +2,6 @@ package com.github.andrelauterjung.jogo.forca.logic;
 
 import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
-import java.util.ArrayList;
 /**
  *
  * @author andrelauterjung
@@ -14,7 +13,7 @@ public class PalavraAtualArray {
     private DadosJogo dados;
     char[] palavraArrayChar;
     char[]  palavraTracejadaChar;
-    char[] letrasDigitadas = new char[26];
+    StringBuilder letrasDigitadas = new StringBuilder();
     int contadorLetraErrada = 0;
     
     public PalavraAtualArray(DadosJogo dados) {
@@ -72,17 +71,14 @@ public class PalavraAtualArray {
     */
     public void isLetraAtualPalavra(char letra) {
         boolean letraErrada = true;
-        boolean isJaFoiDigitada = false;
+        boolean letraJaDigitada = false;
 
-        for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
-            
-            if(letrasDigitadas[i] == letra) {
-                isJaFoiDigitada = true;
-            }
+        if(letrasDigitadas.indexOf(String.valueOf(letra)) >= 0) {
+            letraJaDigitada = true;
         }
         
         /* Se a letra já foi digitada, não conta como erro. */
-        if(isJaFoiDigitada) {
+        if(letraJaDigitada) {
             
             System.out.println("A letra já foi digitada!");
         }
@@ -91,8 +87,7 @@ public class PalavraAtualArray {
         O contador é incrementado para que cada letra fique em uma posição diferente.
         */ 
         else {
-            
-            letrasDigitadas[contadorLetraErrada] = letra;
+            letrasDigitadas.insert(contadorLetraErrada, letra);
             contadorLetraErrada++;
             
             for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
@@ -132,11 +127,13 @@ public class PalavraAtualArray {
     /* Este método serve para mostrar as letras que o usuário já digitou em uma rodada.
     A letra digitada é incrementada na variável 'frase' e após o loop é mostrado o conteúdo da variável. */
     public void mostrarLetrasDigitadas() {
-        String frase = "";
         
-        for(int i = 0; i < letrasDigitadas.length; i++) {
-            frase += letrasDigitadas[i] + " ";
-        }
-        System.out.println("\nLetras digitadas: "+frase);
+        System.out.println("\nLetras digitadas: "+letrasDigitadas);
+    }
+    
+    /* Este método reseta a variável StringBuilder, fazendo com que limpe as letras já digitadas pelo usuário. */
+    public void resetarLetrasDigitadas()  {
+        
+        letrasDigitadas.setLength(0);
     }
 }

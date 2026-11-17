@@ -35,7 +35,7 @@ public class ControladorJogo
                     
                     gerenciador.mostrarPalavraTracejada();
                     
-                    char letraDigitada = entradaDados.entradaDados(sc);
+                    char letraDigitada = entradaDados.lerLetra(sc);
 
                     gerenciador.verificarLetraNaPalavra(letraDigitada);
 

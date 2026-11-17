@@ -13,6 +13,12 @@ public class MensagemErro {
         LinhasDivisorias.exibirLinhaExclamacao();
     }
 
+    public static void erroEntradaDados() {
+        
+        System.out.println("\nX X X  ERRO!  X X X");
+        System.out.println("Caractere inválido!");
+        System.out.println("Tente novamente!");
+    }
     
 
 

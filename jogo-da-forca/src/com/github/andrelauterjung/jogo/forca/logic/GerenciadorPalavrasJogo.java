@@ -89,7 +89,7 @@ public class GerenciadorPalavrasJogo {
             dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
             palavraAtualArray.contadorLetraErrada = 0;
-            palavraAtualArray.letrasDigitadas = new char[25];
+            palavraAtualArray.resetarLetrasDigitadas();
             isProgramaEnd = false;
             
         }
@@ -106,7 +106,7 @@ public class GerenciadorPalavrasJogo {
             dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
             palavraAtualArray.contadorLetraErrada = 0;
-            palavraAtualArray.letrasDigitadas = new char[25];
+            palavraAtualArray.resetarLetrasDigitadas();
         }
     }
     
