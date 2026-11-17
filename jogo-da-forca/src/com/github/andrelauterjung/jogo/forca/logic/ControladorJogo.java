@@ -32,14 +32,11 @@ public class ControladorJogo
             while(isRunning) {
                     
                     gerenciador.mostrarBoneco(dados);
-
+                    
                     gerenciador.mostrarPalavraTracejada();
                     
-                    gerenciador.mostrarLetrasJaDigitadas();
-
                     char letraDigitada = entradaDados.entradaDados(sc);
 
-                    //
                     gerenciador.verificarLetraNaPalavra(letraDigitada);
 
                     isRunning = gerenciador.encerrarRodada();

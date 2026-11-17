@@ -45,7 +45,10 @@ public class GerenciadorPalavrasJogo {
         palavraAtualArray.isLetraAtualPalavra(letra);
     }
             
+    // ********************************8
     public void mostrarPalavraTracejada() {
+        
+        mostrarLetrasJaDigitadas();
         palavraAtualArray.mostrarPalavraLinhaTracejada();
     }
 
