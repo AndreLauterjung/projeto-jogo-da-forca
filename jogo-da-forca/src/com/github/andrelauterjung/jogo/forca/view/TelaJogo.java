@@ -102,4 +102,7 @@ public class TelaJogo
             }
      }
      
+     public void mensagemLetrasDigitadas() {
+         System.out.println("\nLetras digitadas: ");
+     }
 }

@@ -126,11 +126,15 @@ public class PalavraAtualArray {
     }
 
     
-    /* Este método serve para mostrar as letras que o usuário já digitou em uma rodada.
-    A letra digitada é incrementada na variável 'frase' e após o loop é mostrado o conteúdo da variável. */
-    public void mostrarLetrasDigitadas() {
+    /**
+     * Retorna as letras que o usuário já digitou na rodada atual,
+     * na ordem em que foram digitadas.
+     *
+     * @return as letras digitadas, ou uma String vazia se ainda não houve tentativa
+     */
+    public String mostrarLetrasDigitadas() {
         
-        System.out.println("\nLetras digitadas: "+letrasDigitadas);
+        return this.letrasDigitadas.toString();
     }
     
     /* Este método reseta a variável StringBuilder, fazendo com que limpe as letras já digitadas pelo usuário. */
