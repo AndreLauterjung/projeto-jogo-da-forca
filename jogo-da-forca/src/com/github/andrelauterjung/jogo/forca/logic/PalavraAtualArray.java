@@ -11,12 +11,14 @@ public class PalavraAtualArray {
     MensagemErro mensagemErro = new MensagemErro();
     
     private DadosJogo dados;
+    private StringBuilder letrasDigitadas;
+    
     char[] palavraArrayChar;
     char[]  palavraTracejadaChar;
-    StringBuilder letrasDigitadas = new StringBuilder();
     int contadorLetraErrada = 0;
     
     public PalavraAtualArray(DadosJogo dados) {
+        this.letrasDigitadas = new StringBuilder();
         this.dados = dados;
     }
     
