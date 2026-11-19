@@ -69,7 +69,7 @@ public class GerenciadorPalavrasJogo {
     }
     
     public void mostrarLetrasJaDigitadas() {
-        TelaJogo.mensagemLetrasDigitadas(palavraAtualArray.mostrarLetrasDigitadas());
+        TelaJogo.mensagemLetrasDigitadas(palavraAtualArray.getLetrasDigitadas());
     }
     
     public boolean encerrarRodada() {
@@ -88,7 +88,6 @@ public class GerenciadorPalavrasJogo {
             dados.setPalavraAtual("");
             dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
-            palavraAtualArray.contadorLetraErrada = 0;
             palavraAtualArray.resetarLetrasDigitadas();
             isProgramaEnd = false;
             
@@ -105,7 +104,6 @@ public class GerenciadorPalavrasJogo {
             dados.setPalavraAtual("");
             dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
-            palavraAtualArray.contadorLetraErrada = 0;
             palavraAtualArray.resetarLetrasDigitadas();
         }
     }

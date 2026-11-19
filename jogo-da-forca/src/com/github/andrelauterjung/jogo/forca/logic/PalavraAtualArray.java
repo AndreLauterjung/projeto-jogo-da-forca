@@ -15,7 +15,6 @@ public class PalavraAtualArray {
     
     char[] palavraArrayChar;
     char[]  palavraTracejadaChar;
-    int contadorLetraErrada = 0;
     
     public PalavraAtualArray(DadosJogo dados) {
         this.letrasDigitadas = new StringBuilder();
@@ -72,7 +71,7 @@ public class PalavraAtualArray {
     
     */
     public void isLetraAtualPalavra(char letra) {
-        boolean letraErrada = true;
+        boolean isLetraErrada = true;
         boolean letraJaDigitada = false;
 
         if(letrasDigitadas.indexOf(String.valueOf(letra)) >= 0) {
@@ -89,18 +88,18 @@ public class PalavraAtualArray {
         O contador é incrementado para que cada letra fique em uma posição diferente.
         */ 
         else {
-            letrasDigitadas.insert(contadorLetraErrada, letra);
-            contadorLetraErrada++;
+            
+            letrasDigitadas.append(letra);
             
             for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
 
                 if(palavraArrayChar[i] == letra) {
 
-                    letraErrada = false;
+                    isLetraErrada = false;
                     palavraTracejadaChar[i] = letra;
                 }
             }
-            if(letraErrada) {
+            if(isLetraErrada) {
                 mensagemErro.mensagemLetraErrada();
                 dados.atualizaQuantidadeErros(1);
             }
@@ -114,7 +113,7 @@ public class PalavraAtualArray {
     */
     public boolean isLetraTracejada() {
         boolean isLetraTracejada = false;
-        
+         
         for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
             
             if(palavraTracejadaChar[i] == '_')
