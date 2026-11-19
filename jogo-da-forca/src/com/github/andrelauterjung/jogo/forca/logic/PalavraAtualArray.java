@@ -132,7 +132,7 @@ public class PalavraAtualArray {
      *
      * @return as letras digitadas, ou uma String vazia se ainda não houve tentativa
      */
-    public String mostrarLetrasDigitadas() {
+    public String getLetrasDigitadas() {
         
         return this.letrasDigitadas.toString();
     }
