@@ -12,18 +12,20 @@ public class PalavraAtualArray {
     
     private DadosJogo dados;
     private StringBuilder letrasDigitadas;
-    
-    char[] palavraArrayChar;
-    char[]  palavraTracejadaChar;
+    private char[] palavraArrayChar;
+    private char[]  palavraTracejadaChar;
     
     public PalavraAtualArray(DadosJogo dados) {
-        this.letrasDigitadas = new StringBuilder();
+        
         this.dados = dados;
+        this.letrasDigitadas = new StringBuilder();
+        this.palavraArrayChar = new char[0];
+        this.palavraTracejadaChar = new char[0];
     }
     
     public void adicionarPalavraArrayChar() {
         
-        palavraArrayChar = new char[this.dados.getQuantidadeLetras()];
+        this.palavraArrayChar = new char[this.dados.getQuantidadeLetras()];
         /* Cada letra da palavra é adicionada em uma posição do Array de Char. */
         for(int i= 0; i < this.dados.getPalavraAtual().length(); i++) {
 
@@ -33,9 +35,9 @@ public class PalavraAtualArray {
     
      public void adicionarPalavraTracejadaArray() {
         
-        palavraTracejadaChar = new char[dados.getQuantidadeLetras()];
+        this.palavraTracejadaChar = new char[this.dados.getQuantidadeLetras()];
         //Loop para fazer a palavra "tracejada": Exemplo: _ _ _ _ _ _ _
-        for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
+        for(int i = 0; i < this.dados.getPalavraAtual().length(); i++) {
             
             palavraTracejadaChar[i] = '_';
         }
@@ -44,9 +46,9 @@ public class PalavraAtualArray {
     public void mostrarPalavraLinhaTracejada() {
          /* Este loop serve para mostrar palavra atual de forma tracejada (exemplo: _ _ _ _ _ _ _)*/
             System.out.printf("\nPalavra: ");
-            for(int i = 0; i < dados.getPalavraAtual().length(); i++)
+            for(int i = 0; i < this.dados.getPalavraAtual().length(); i++)
             {
-                System.out.printf("%c ", palavraTracejadaChar[i]);
+                System.out.printf("%c ", this.palavraTracejadaChar[i]);
             }
             System.out.println("");
     }
@@ -74,7 +76,7 @@ public class PalavraAtualArray {
         boolean isLetraErrada = true;
         boolean letraJaDigitada = false;
 
-        if(letrasDigitadas.indexOf(String.valueOf(letra)) >= 0) {
+        if(this.letrasDigitadas.indexOf(String.valueOf(letra)) >= 0) {
             letraJaDigitada = true;
         }
         
@@ -89,19 +91,19 @@ public class PalavraAtualArray {
         */ 
         else {
             
-            letrasDigitadas.append(letra);
+            this.letrasDigitadas.append(letra);
             
-            for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
+            for(int i = 0; i < this.dados.getPalavraAtual().length(); i++) {
 
-                if(palavraArrayChar[i] == letra) {
+                if(this.palavraArrayChar[i] == letra) {
 
                     isLetraErrada = false;
-                    palavraTracejadaChar[i] = letra;
+                    this.palavraTracejadaChar[i] = letra;
                 }
             }
             if(isLetraErrada) {
                 mensagemErro.mensagemLetraErrada();
-                dados.atualizaQuantidadeErros(1);
+                this.dados.atualizaQuantidadeErros(1);
             }
         }
     }
@@ -114,9 +116,9 @@ public class PalavraAtualArray {
     public boolean isLetraTracejada() {
         boolean isLetraTracejada = false;
          
-        for(int i = 0; i < dados.getPalavraAtual().length(); i++) {
+        for(int i = 0; i < this.dados.getPalavraAtual().length(); i++) {
             
-            if(palavraTracejadaChar[i] == '_')
+            if(this.palavraTracejadaChar[i] == '_')
             {
                 isLetraTracejada = true;
             } 
@@ -136,9 +138,10 @@ public class PalavraAtualArray {
         return this.letrasDigitadas.toString();
     }
     
+    
     /* Este método reseta a variável StringBuilder, fazendo com que limpe as letras já digitadas pelo usuário. */
     public void resetarLetrasDigitadas()  {
         
-        letrasDigitadas.setLength(0);
+        this.letrasDigitadas.setLength(0);
     }
 }
