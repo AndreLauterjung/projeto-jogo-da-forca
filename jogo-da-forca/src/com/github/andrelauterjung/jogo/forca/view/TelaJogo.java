@@ -102,7 +102,7 @@ public class TelaJogo
             }
      }
      
-     public void mensagemLetrasDigitadas() {
-         System.out.println("\nLetras digitadas: ");
+     public static void mensagemLetrasDigitadas(String letrasDigitadas) {
+         System.out.printf("\nLetras digitadas: %s\n", letrasDigitadas);
      }
 }

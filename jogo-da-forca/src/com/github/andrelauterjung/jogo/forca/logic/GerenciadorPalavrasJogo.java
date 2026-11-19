@@ -45,7 +45,7 @@ public class GerenciadorPalavrasJogo {
         palavraAtualArray.isLetraAtualPalavra(letra);
     }
             
-    // ********************************8
+    // ********************************
     public void mostrarPalavraTracejada() {
         
         mostrarLetrasJaDigitadas();
@@ -69,7 +69,7 @@ public class GerenciadorPalavrasJogo {
     }
     
     public void mostrarLetrasJaDigitadas() {
-        palavraAtualArray.mostrarLetrasDigitadas();
+        TelaJogo.mensagemLetrasDigitadas(palavraAtualArray.mostrarLetrasDigitadas());
     }
     
     public boolean encerrarRodada() {
