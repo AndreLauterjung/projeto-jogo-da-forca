@@ -16,12 +16,12 @@ public class GerenciadorPalavrasJogo {
     ListaPalavras listaPalavras = new ListaPalavras();
     
     private DadosJogo dados;
-    private PalavraAtualArray palavraAtualArray;
+    private RodadaPalavra palavraAtual;
     private int numeroRodada = 0;
     
     public GerenciadorPalavrasJogo(DadosJogo dados) {
         this.dados = dados;
-        this.palavraAtualArray = new PalavraAtualArray(this.dados);
+        this.palavraAtual = new RodadaPalavra(this.dados);
     }
         
     /* Essa lista foi criada, pois valores serão removidos durante o funcionamento do programa.
@@ -34,16 +34,16 @@ public class GerenciadorPalavrasJogo {
         this.dados.setPalavraAtual(palavras.get(0).toLowerCase());
         this.dados.setQuantidadeLetras(this.dados.getPalavraAtual().length());
         
-        palavraAtualArray.adicionarPalavraArrayChar();
+        palavraAtual.adicionarPalavraArrayChar();
         
-        palavraAtualArray.adicionarPalavraTracejadaArray();
+        palavraAtual.adicionarPalavraTracejadaArray();
 
     }
     
     
     public void verificarLetraNaPalavra(char letra) {
         
-        palavraAtualArray.processarLetra(letra);
+        palavraAtual.processarLetra(letra);
     }
             
     
@@ -55,13 +55,13 @@ public class GerenciadorPalavrasJogo {
     
     
     public void mostrarLetrasJaDigitadas() {
-        TelaJogo.mensagemLetrasDigitadas(palavraAtualArray.getLetrasDigitadas());
+        TelaJogo.mensagemLetrasDigitadas(palavraAtual.getLetrasDigitadas());
     }
     
     
     public void mostrarPalavra() {
         TelaJogo.textoPalavra();
-        TelaJogo.mostrarPalavraLinhaTracejada(palavraAtualArray.getPalavraLinhaTracejada());
+        TelaJogo.mostrarPalavraLinhaTracejada(palavraAtual.getPalavraLinhaTracejada());
     }
 
     
@@ -87,7 +87,7 @@ public class GerenciadorPalavrasJogo {
  
         /* SE não houver mais traços na palavra tracejada, ou seja, está com todas as letras preenchidas,
         a palavra atual é removida da lista de palavras e as variáveis são resetadas. */
-        if(palavraAtualArray.temLetraFaltando() == false) {
+        if(palavraAtual.temLetraFaltando() == false) {
             isProgramaEnd = false;
             resetarPalavra();
         }
@@ -98,7 +98,7 @@ public class GerenciadorPalavrasJogo {
             dados.setPalavraAtual("");
             dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
-            palavraAtualArray.resetarLetrasDigitadas();
+            palavraAtual.resetarLetrasDigitadas();
             isProgramaEnd = false;
             
         }
@@ -108,14 +108,14 @@ public class GerenciadorPalavrasJogo {
     
     
     public void resetarPalavra() {
-        if(palavraAtualArray.temLetraFaltando() == false) {
+        if(palavraAtual.temLetraFaltando() == false) {
             mostrarPalavraTracejada();
             
             palavras.remove(0);
             dados.setPalavraAtual("");
             dados.zeraQuantidadeErros();
             dados.setQuantidadeLetras(0);
-            palavraAtualArray.resetarLetrasDigitadas();
+            palavraAtual.resetarLetrasDigitadas();
         }
     }
     

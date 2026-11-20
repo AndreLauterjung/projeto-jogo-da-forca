@@ -12,14 +12,14 @@ import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
  *
  * @author andrelauterjung
  */
-public class PalavraAtualArray {
+public class RodadaPalavra {
 
     private DadosJogo dados;
     private StringBuilder letrasDigitadas;
     private char[] palavraArrayChar;
     private char[] palavraTracejadaChar;
 
-    public PalavraAtualArray(DadosJogo dados) {
+    public RodadaPalavra(DadosJogo dados) {
 
         this.dados = dados;
         this.letrasDigitadas = new StringBuilder();
