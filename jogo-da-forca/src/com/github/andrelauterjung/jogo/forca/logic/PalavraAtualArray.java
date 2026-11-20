@@ -108,22 +108,21 @@ public class PalavraAtualArray {
         }
     }
     
-    /* SE não tiver letra tracejada, retorna False
-    SE tiver alguma letra tracejada, retorna True
-    
-    Método utilizado para parar o loop e encerrar quando não houver mais linhas tracejadas
-    */
-    public boolean isLetraTracejada() {
-        boolean isLetraTracejada = false;
-         
-        for(int i = 0; i < this.dados.getPalavraAtual().length(); i++) {
+    /**
+     * Indica se a palavra ainda tem letras não descobertas (traços).
+     *
+     * @return true se ainda houver algum traço, false se a palavra estiver completa
+     */
+    public boolean temLetraFaltando() {
+
+        for(char caractere: this.palavraTracejadaChar) {
             
-            if(this.palavraTracejadaChar[i] == '_')
-            {
-                isLetraTracejada = true;
-            } 
+            if(caractere == '_') {
+                
+                return true;
+            }
         }
-        return isLetraTracejada;
+        return false;
     }
 
     

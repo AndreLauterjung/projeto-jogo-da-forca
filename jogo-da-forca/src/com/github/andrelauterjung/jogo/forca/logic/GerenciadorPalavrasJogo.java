@@ -77,7 +77,7 @@ public class GerenciadorPalavrasJogo {
  
         /* SE não houver mais traços na palavra tracejada, ou seja, está com todas as letras preenchidas,
         a palavra atual é removida da lista de palavras e as variáveis são resetadas. */
-        if(palavraAtualArray.isLetraTracejada() == false) {
+        if(palavraAtualArray.temLetraFaltando() == false) {
             isProgramaEnd = false;
             resetarPalavra();
         }
@@ -97,7 +97,7 @@ public class GerenciadorPalavrasJogo {
     }
     
     public void resetarPalavra() {
-        if(palavraAtualArray.isLetraTracejada() == false) {
+        if(palavraAtualArray.temLetraFaltando() == false) {
             mostrarPalavraTracejada();
             
             palavras.remove(0);
