@@ -162,7 +162,10 @@ public class PalavraAtualArray {
     }
     
     
-    /* Este método reseta a variável StringBuilder, fazendo com que limpe as letras já digitadas pelo usuário. */
+    /**
+     * Limpa as letras digitadas na rodada atual.
+     * Deve ser chamado ao encerrar uma rodada, para que a próxima comece sem letras.
+     */
     public void resetarLetrasDigitadas()  {
         
         this.letrasDigitadas.setLength(0);
