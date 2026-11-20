@@ -24,25 +24,38 @@ public class PalavraAtualArray {
         this.palavraTracejadaChar = new char[0];
     }
     
+    
+    /**
+     * Prepara o array de caracteres da palavra secreta da rodada,
+     * copiando cada letra da palavra atual (obtida na classe DadosJogo).
+     * Deve ser chamado sempre que uma nova palavra for sorteada ou carregada.
+     */
     public void adicionarPalavraArrayChar() {
         
         this.palavraArrayChar = new char[this.dados.getQuantidadeLetras()];
-        /* Cada letra da palavra é adicionada em uma posição do Array de Char. */
-        for(int i= 0; i < this.dados.getPalavraAtual().length(); i++) {
+        
+        for(int i = 0; i < this.dados.getPalavraAtual().length(); i++) {
 
             palavraArrayChar[i] = this.dados.getPalavraAtual().charAt(i);
         }
     }
     
-     public void adicionarPalavraTracejadaArray() {
+    
+    /**
+     * Prepara a palavra tracejada da rodada, com um traço (_) para cada letra
+     * da palavra atual. Exemplo: "abobora" vira _ _ _ _ _ _ _.
+     * Deve ser chamado junto com adicionarPalavraArrayChar(), no início de cada rodada.
+     */
+    public void adicionarPalavraTracejadaArray() {
         
         this.palavraTracejadaChar = new char[this.dados.getQuantidadeLetras()];
-        //Loop para fazer a palavra "tracejada": Exemplo: _ _ _ _ _ _ _
+        
         for(int i = 0; i < this.dados.getPalavraAtual().length(); i++) {
             
             palavraTracejadaChar[i] = '_';
         }
     }
+    
     
     /**
      * Retorna a palavra da rodada no estado atual, com as letras já descobertas e traços (_) no lugar das que faltam,
@@ -63,6 +76,7 @@ public class PalavraAtualArray {
             return palavra.toString();
     }
    
+    
     /* Método onde substitui uma linha tracejada pela letra.
     
     Como funciona: 
