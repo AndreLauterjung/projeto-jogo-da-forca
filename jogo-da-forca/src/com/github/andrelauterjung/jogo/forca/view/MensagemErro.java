@@ -6,7 +6,7 @@ package com.github.andrelauterjung.jogo.forca.view;
  */
 public class MensagemErro {
 
-    public void mensagemLetraErrada() {
+    public static void mensagemLetraErrada() {
         
         LinhasDivisorias.exibirLinhaExclamacao();
         System.out.println("ERRO! A letra não está na palavra!");

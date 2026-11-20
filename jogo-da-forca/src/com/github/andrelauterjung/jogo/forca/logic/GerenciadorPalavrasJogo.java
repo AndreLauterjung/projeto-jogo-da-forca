@@ -43,7 +43,7 @@ public class GerenciadorPalavrasJogo {
     
     public void verificarLetraNaPalavra(char letra) {
         
-        palavraAtualArray.isLetraAtualPalavra(letra);
+        palavraAtualArray.processarLetra(letra);
     }
             
     

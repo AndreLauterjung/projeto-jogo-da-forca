@@ -1,15 +1,14 @@
 package com.github.andrelauterjung.jogo.forca.logic;
 
-import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
+import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
+
 /**
  *
  * @author andrelauterjung
  */
 public class PalavraAtualArray {
-    
-    MensagemErro mensagemErro = new MensagemErro();
     
     private DadosJogo dados;
     private StringBuilder letrasDigitadas;
@@ -57,44 +56,26 @@ public class PalavraAtualArray {
     }
     
     
-    
-    
-    /* Método onde substitui uma linha tracejada pela letra.
-    
-    Como funciona: 
-    
-    SE uma letra for igual a letra da posição i de uma palavra, como a palavra é a mesma palavra da linha
-    tracejada (_ _ _ _...) vai substituir o _ referente a posição da letra na palavra. 
-    
-    SE a letra estiver na posição 3 de uma palavra, o terceiro traço vai ser substituido pela letra.
-    
-    SE a letra digitada pelo usuário estiver na palavra, a variável boolean "letraErrada" muda o valor para false, pois
-    não foi digitada uma letra errada. 
-    
-    Porém, se o usuário digitar uma letra errada, o valor da variável boolean "letraErrada" continua true, e essa
-    variável será utilizada para contar ou não erros.
-    
-    SE ele digitar uma letra errada, ou seja, a letra digitada não está na palavra, "letraErrada" continua true.
-    SE "letraErrada" for true, é incrementado + 1 na quantidade de erros.
-    
-    */
-    public void isLetraAtualPalavra(char letra) {
-        boolean isLetraErrada = true;
-        boolean letraJaDigitada = false;
-
-        if(this.letrasDigitadas.indexOf(String.valueOf(letra)) >= 0) {
-            letraJaDigitada = true;
-        }
+    /**
+     * Processa a letra digitada pelo usuário na rodada atual.
+     * <ul>
+     *   <li>Se a letra já foi digitada, exibe um aviso e não conta como erro.</li>
+     *   <li>Se a letra está na palavra, revela todas as posições em que ela aparece.</li>
+     *   <li>Se a letra não está na palavra, exibe a mensagem de erro e soma um erro.</li>
+     * </ul>
+     * Toda letra nova é registrada na lista de letras digitadas.
+     *
+     * @param letra a letra digitada, já validada e em minúscula
+     */
+    public void processarLetra(char letra) {
         
-        /* Se a letra já foi digitada, não conta como erro. */
+        boolean isLetraErrada = true;
+        
+        boolean letraJaDigitada = this.letrasDigitadas.indexOf(String.valueOf(letra)) >= 0;
         if(letraJaDigitada) {
             
             TelaJogo.avisoLetraJaDigitada();
         }
-        /* se a letra não foi digitada, roda o else. 
-        A letra é adicionada numa posição do char[] letrasDigitadas e o contador é incrementado
-        O contador é incrementado para que cada letra fique em uma posição diferente.
-        */ 
         else {
             
             this.letrasDigitadas.append(letra);
@@ -108,7 +89,7 @@ public class PalavraAtualArray {
                 }
             }
             if(isLetraErrada) {
-                mensagemErro.mensagemLetraErrada();
+                MensagemErro.mensagemLetraErrada();
                 this.dados.atualizaQuantidadeErros(1);
             }
         }
