@@ -153,10 +153,10 @@ public class PalavraAtualArray {
 
          StringBuilder palavra = new StringBuilder();
          
-            for(int i = 0; i < this.dados.getPalavraAtual().length(); i++)
-            {
-                palavra.append(this.palavraTracejadaChar[i]).append(" ");
-            }
+         for(char caractere: this.palavraTracejadaChar) {
+             
+             palavra.append(caractere).append(" ");
+         }
             return palavra.toString();
     }
    
