@@ -57,25 +57,7 @@ public class PalavraAtualArray {
     }
     
     
-    /**
-     * Retorna a palavra da rodada no estado atual, com as letras já descobertas e traços (_) no lugar das que faltam,
-     * separados por espaço. 
-     * 
-     * Exemplo: " a b o b o _ a ".
-     *  
-     * @return a palavra tracejada como String.
-     */
-    public String getPalavraLinhaTracejada() {
-
-         StringBuilder palavra = new StringBuilder();
-         
-            for(int i = 0; i < this.dados.getPalavraAtual().length(); i++)
-            {
-                palavra.append(this.palavraTracejadaChar[i]).append(" ");
-            }
-            return palavra.toString();
-    }
-   
+    
     
     /* Método onde substitui uma linha tracejada pela letra.
     
@@ -132,6 +114,7 @@ public class PalavraAtualArray {
         }
     }
     
+    
     /**
      * Indica se a palavra ainda tem letras não descobertas (traços).
      *
@@ -148,7 +131,17 @@ public class PalavraAtualArray {
         }
         return false;
     }
-
+    
+    
+    /**
+     * Limpa as letras digitadas na rodada atual.
+     * Deve ser chamado ao encerrar uma rodada, para que a próxima comece sem letras.
+     */
+    public void resetarLetrasDigitadas()  {
+        
+        this.letrasDigitadas.setLength(0);
+    }
+    
     
     /**
      * Retorna as letras que o usuário já digitou na rodada atual,
@@ -163,11 +156,22 @@ public class PalavraAtualArray {
     
     
     /**
-     * Limpa as letras digitadas na rodada atual.
-     * Deve ser chamado ao encerrar uma rodada, para que a próxima comece sem letras.
+     * Retorna a palavra da rodada no estado atual, com as letras já descobertas e traços (_) no lugar das que faltam,
+     * separados por espaço. 
+     * 
+     * Exemplo: " a b o b o _ a ".
+     *  
+     * @return a palavra tracejada como String.
      */
-    public void resetarLetrasDigitadas()  {
-        
-        this.letrasDigitadas.setLength(0);
+    public String getPalavraLinhaTracejada() {
+
+         StringBuilder palavra = new StringBuilder();
+         
+            for(int i = 0; i < this.dados.getPalavraAtual().length(); i++)
+            {
+                palavra.append(this.palavraTracejadaChar[i]).append(" ");
+            }
+            return palavra.toString();
     }
+   
 }
