@@ -5,6 +5,11 @@ import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 
 /**
+ * Representa a palavra da rodada atual e o progresso do jogador nela.
+ * Guarda as letras da palavra secreta, a palavra tracejada (com as letras
+ * já descobertas) e as letras que o jogador já digitou.
+ * Também processa cada letra digitada, revelando-a na palavra ou
+ * registrando um erro em DadosJogo.
  *
  * @author andrelauterjung
  */
