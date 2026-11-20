@@ -40,18 +40,31 @@ public class GerenciadorPalavrasJogo {
 
     }
     
+    
     public void verificarLetraNaPalavra(char letra) {
         
         palavraAtualArray.isLetraAtualPalavra(letra);
     }
             
-    // ********************************
+    
     public void mostrarPalavraTracejada() {
         
         mostrarLetrasJaDigitadas();
-        palavraAtualArray.mostrarPalavraLinhaTracejada();
+        mostrarPalavra();
+    }
+    
+    
+    public void mostrarLetrasJaDigitadas() {
+        TelaJogo.mensagemLetrasDigitadas(palavraAtualArray.getLetrasDigitadas());
+    }
+    
+    
+    public void mostrarPalavra() {
+        TelaJogo.textoPalavra();
+        TelaJogo.mostrarPalavraLinhaTracejada(palavraAtualArray.getPalavraLinhaTracejada());
     }
 
+    
     public void mostrarBoneco(DadosJogo dados) {
         
         tela.mostrarBoneco(dados.getQuantidadeErros());
@@ -67,10 +80,7 @@ public class GerenciadorPalavrasJogo {
             System.out.println(TelaJogo.mensagemRodada()+numeroRodada);
         }
     }
-    
-    public void mostrarLetrasJaDigitadas() {
-        TelaJogo.mensagemLetrasDigitadas(palavraAtualArray.getLetrasDigitadas());
-    }
+
     
     public boolean encerrarRodada() {
         boolean isProgramaEnd = true;
@@ -96,6 +106,7 @@ public class GerenciadorPalavrasJogo {
         return isProgramaEnd;
     }
     
+    
     public void resetarPalavra() {
         if(palavraAtualArray.temLetraFaltando() == false) {
             mostrarPalavraTracejada();
@@ -107,6 +118,7 @@ public class GerenciadorPalavrasJogo {
             palavraAtualArray.resetarLetrasDigitadas();
         }
     }
+    
     
     public boolean encerrarPrograma() {
         boolean encerrarProgramaGeral = true;
@@ -120,6 +132,7 @@ public class GerenciadorPalavrasJogo {
         }
         return encerrarProgramaGeral;
     }
+    
     
     /* Método Getter para retornar a quantidade de palavras na lista */
     public int getSizePalavras() {

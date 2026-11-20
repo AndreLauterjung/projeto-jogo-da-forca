@@ -32,6 +32,14 @@ public class TelaJogo
         System.out.println("\nDigite uma letra: ");
     }
     
+    public static void textoPalavra() {
+        System.out.printf("\nPalavra: ");
+    }
+    
+    public static void avisoLetraJaDigitada() {
+        
+        System.out.println("A letra já foi digitada!");
+    }
     
     public static void bonecoUmErro() {
         System.out.println("\nVocê tem 1 erro!");
@@ -104,5 +112,10 @@ public class TelaJogo
      
      public static void mensagemLetrasDigitadas(String letrasDigitadas) {
          System.out.printf("\nLetras digitadas: %s\n", letrasDigitadas);
+     }
+     
+     public static void mostrarPalavraLinhaTracejada(String palavra) {
+         
+         System.out.printf(palavra + "\n");
      }
 }

@@ -2,6 +2,7 @@ package com.github.andrelauterjung.jogo.forca.logic;
 
 import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
+import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 /**
  *
  * @author andrelauterjung
@@ -43,14 +44,23 @@ public class PalavraAtualArray {
         }
     }
     
-    public void mostrarPalavraLinhaTracejada() {
-         /* Este loop serve para mostrar palavra atual de forma tracejada (exemplo: _ _ _ _ _ _ _)*/
-            System.out.printf("\nPalavra: ");
+    /**
+     * Retorna a palavra da rodada no estado atual, com as letras já descobertas e traços (_) no lugar das que faltam,
+     * separados por espaço. 
+     * 
+     * Exemplo: " a b o b o _ a ".
+     *  
+     * @return a palavra tracejada como String.
+     */
+    public String getPalavraLinhaTracejada() {
+
+         StringBuilder palavra = new StringBuilder();
+         
             for(int i = 0; i < this.dados.getPalavraAtual().length(); i++)
             {
-                System.out.printf("%c ", this.palavraTracejadaChar[i]);
+                palavra.append(this.palavraTracejadaChar[i]).append(" ");
             }
-            System.out.println("");
+            return palavra.toString();
     }
    
     /* Método onde substitui uma linha tracejada pela letra.
@@ -83,7 +93,7 @@ public class PalavraAtualArray {
         /* Se a letra já foi digitada, não conta como erro. */
         if(letraJaDigitada) {
             
-            System.out.println("A letra já foi digitada!");
+            TelaJogo.avisoLetraJaDigitada();
         }
         /* se a letra não foi digitada, roda o else. 
         A letra é adicionada numa posição do char[] letrasDigitadas e o contador é incrementado
