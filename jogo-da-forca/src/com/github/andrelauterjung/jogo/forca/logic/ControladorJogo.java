@@ -12,7 +12,7 @@ public class ControladorJogo
 {
     DadosJogo dados = new DadosJogo();
     EntradaDados entradaDados = new EntradaDados();
-    GerenciadorPalavrasJogo gerenciador = new GerenciadorPalavrasJogo(dados);
+    GerenciadorPartida gerenciador = new GerenciadorPartida(dados);
     
     Scanner sc = new Scanner(System.in);
     boolean isRunning = false;

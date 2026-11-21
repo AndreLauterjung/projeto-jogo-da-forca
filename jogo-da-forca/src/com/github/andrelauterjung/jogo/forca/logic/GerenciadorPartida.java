@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author andrelauterjung
  */
-public class GerenciadorPalavrasJogo {
+public class GerenciadorPartida {
     
     TelaJogo tela = new TelaJogo();
     ListaPalavras listaPalavras = new ListaPalavras();
@@ -19,7 +19,7 @@ public class GerenciadorPalavrasJogo {
     private RodadaPalavra palavraAtual;
     private int numeroRodada = 0;
     
-    public GerenciadorPalavrasJogo(DadosJogo dados) {
+    public GerenciadorPartida(DadosJogo dados) {
         this.dados = dados;
         this.palavraAtual = new RodadaPalavra(this.dados);
     }
