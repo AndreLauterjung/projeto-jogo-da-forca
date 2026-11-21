@@ -72,7 +72,7 @@ public class GerenciadorPartida {
 
     /* Metodo que atualiza o número da rodada */
     public void contagemRodada() {
-        int qtdPalavras = getSizePalavras();
+        int qtdPalavras = getQuantidadePalavras();
         
         if(qtdPalavras > 0) {
             ++this.numeroRodada;
@@ -123,7 +123,7 @@ public class GerenciadorPartida {
     public boolean encerrarPrograma() {
         boolean encerrarProgramaGeral = true;
         
-        int qtdPalavras = getSizePalavras();
+        int qtdPalavras = getQuantidadePalavras();
         
         if(qtdPalavras == 0) {
             
@@ -135,7 +135,7 @@ public class GerenciadorPartida {
     
     
     /* Método Getter para retornar a quantidade de palavras na lista */
-    public int getSizePalavras() {
+    public int getQuantidadePalavras() {
         
         return palavras.size();
     }
