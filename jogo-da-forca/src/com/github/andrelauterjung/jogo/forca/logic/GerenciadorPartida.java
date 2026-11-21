@@ -134,7 +134,11 @@ public class GerenciadorPartida {
     }
     
     
-    /* Método Getter para retornar a quantidade de palavras na lista */
+    /**
+     * Retorna a quantidade de palavras que ainda restam na lista do jogo.
+     *
+     * @return o número de palavras restantes na lista
+     */
     public int getQuantidadePalavras() {
         
         return palavras.size();
