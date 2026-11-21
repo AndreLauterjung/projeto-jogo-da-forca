@@ -24,8 +24,13 @@ public class GerenciadorPartida {
         this.palavraAtual = new RodadaPalavra(this.dados);
     }
         
-    /* Essa lista foi criada, pois valores serão removidos durante o funcionamento do programa.
-    Dessa forma, a listra principal não é alterada tornando mais fácil a adição ou remoção de palavras no jogo. */
+    /**
+     * Cópia da lista principal de palavras, usada durante o jogo.
+     * <p>
+     * As palavras são removidas desta cópia a cada rodada, então a lista
+     * original (ListaPalavras) não é alterada, e fica fácil adicionar ou
+     * remover palavras do jogo.
+     */
     ArrayList<String> palavras = new ArrayList<>(listaPalavras.getListaPalavras());
     
     /* Atualiza palavra atual conforme as rodadas do jogo vão acontecendo. */
