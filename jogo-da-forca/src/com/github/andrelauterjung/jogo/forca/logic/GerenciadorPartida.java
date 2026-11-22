@@ -122,6 +122,13 @@ public class GerenciadorPartida {
     }
     
     
+    /**
+     * Reinicializa os dados da rodada atual, limpando a palavra, a quantidade
+     * de erros e a quantidade de letras.
+     * <p>
+     * Também reseta os atributos de RodadaPalavra e remove a palavra utilizada
+     * da lista de palavras disponíveis.
+     */
     public void resetar() {
         
         palavraAtual.resetar();
@@ -130,6 +137,7 @@ public class GerenciadorPartida {
         dados.setQuantidadeLetras(0);
         removePalavraAtual();
     }
+    
     
     /**
      * Remove a primeira palavra da lista de palavras disponíveis,
