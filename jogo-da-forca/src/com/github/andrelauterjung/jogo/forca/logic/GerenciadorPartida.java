@@ -131,7 +131,10 @@ public class GerenciadorPartida {
         removePalavraAtual();
     }
     
-    
+    /**
+     * Remove a primeira palavra da lista de palavras disponíveis,
+     * descartando a palavra utilizada na rodada atual.
+     */
     public void removePalavraAtual() {
         
         palavras.remove(0);
