@@ -7,6 +7,9 @@ import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 import java.util.ArrayList;
 
 /**
+ * Gerencia o fluxo da partida do Jogo da Forca, controlando as rodadas,
+ * as palavras disponíveis, o processamento das tentativas do jogador
+ * e o encerramento da partida.
  *
  * @author andrelauterjung
  */
