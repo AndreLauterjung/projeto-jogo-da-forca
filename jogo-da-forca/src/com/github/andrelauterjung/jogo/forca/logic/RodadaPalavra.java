@@ -116,6 +116,13 @@ public class RodadaPalavra {
         return false;
     }
 
+    
+    public void resetar() {
+        resetarLetrasDigitadas();
+        this.palavraArrayChar = new char[0];
+        this.palavraTracejadaChar = new char[0];
+    }
+    
     /**
      * Limpa as letras digitadas na rodada atual. Deve ser chamado ao encerrar
      * uma rodada, para que a próxima comece sem letras.
