@@ -99,11 +99,7 @@ public class GerenciadorPartida {
         else if(dados.getQuantidadeErros() == 6)
         {
             tela.mostrarBoneco(dados.getQuantidadeErros());
-            palavras.remove(0);
-            dados.setPalavraAtual("");
-            dados.zeraQuantidadeErros();
-            dados.setQuantidadeLetras(0);
-            palavraAtual.resetarLetrasDigitadas();
+            resetar();
             isProgramaEnd = false;
             
         }
@@ -115,10 +111,15 @@ public class GerenciadorPartida {
     public void resetar() {
         
         palavraAtual.resetar();
-        palavras.remove(0);
         dados.setPalavraAtual("");
         dados.zeraQuantidadeErros();
         dados.setQuantidadeLetras(0);
+        removePalavraAtual();
+    }
+    
+    public void removePalavraAtual() {
+        
+        palavras.remove(0);
     }
     
     public void resetarPalavra() {
