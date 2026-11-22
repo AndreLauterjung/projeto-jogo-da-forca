@@ -69,14 +69,22 @@ public class GerenciadorPartida {
         tela.mostrarBoneco(dados.getQuantidadeErros());
     }
 
-    /* Metodo que atualiza o número da rodada */
+    
+    /**
+     * Atualiza o número da rodada e exibe sua identificação na tela.
+     * <p>
+     * A contagem é incrementada somente quando ainda existem palavras
+     * disponíveis na lista de palavras do jogo.
+     */
     public void contagemRodada() {
+        
         int qtdPalavras = getQuantidadePalavras();
         
         if(qtdPalavras > 0) {
+            
             ++this.numeroRodada;
             
-            System.out.println(TelaJogo.mensagemRodada()+numeroRodada);
+            TelaJogo.mensagemRodada(numeroRodada);
         }
     }
     

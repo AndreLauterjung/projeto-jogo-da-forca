@@ -14,9 +14,11 @@ public class TelaJogo
         System.out.println("=====================================================");
     }
     
-    public static String mensagemRodada() {
+    public static void mensagemRodada(int numRodada) {
+        
         LinhasDivisorias.exibirLinhaDivisoriaSinalIgual();
-        return "Rodada: ";
+        System.out.println("Rodada: "+numRodada);
+        
     }
     
     public static void menuOpcoes(){
