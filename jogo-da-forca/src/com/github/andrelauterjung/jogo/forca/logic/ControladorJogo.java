@@ -33,7 +33,7 @@ public class ControladorJogo
                     
                     gerenciador.mostrarBoneco(dados);
                     
-                    gerenciador.mostrarPalavraTracejada();
+                    gerenciador.mostrarPalavra();
                     
                     char letraDigitada = entradaDados.lerLetra(sc);
 

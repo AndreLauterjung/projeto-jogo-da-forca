@@ -50,14 +50,7 @@ public class GerenciadorPartida {
         
         palavraAtual.processarLetra(letra);
     }
-            
-    
-    public void mostrarPalavraTracejada() {
-        
-        mostrarLetrasJaDigitadas();
-        mostrarPalavra();
-    }
-    
+       
     
     public void mostrarLetrasJaDigitadas() {
         TelaJogo.mensagemLetrasDigitadas(palavraAtual.getLetrasDigitadas());
@@ -65,6 +58,8 @@ public class GerenciadorPartida {
     
     
     public void mostrarPalavra() {
+        mostrarLetrasJaDigitadas();
+        
         TelaJogo.textoPalavra();
         TelaJogo.mostrarPalavraLinhaTracejada(palavraAtual.getPalavraLinhaTracejada());
     }
@@ -85,6 +80,7 @@ public class GerenciadorPartida {
             System.out.println(TelaJogo.mensagemRodada()+numeroRodada);
         }
     }
+    
 
     
     /**
@@ -105,7 +101,7 @@ public class GerenciadorPartida {
         
         if(palavraAtual.temLetraFaltando() == false) {
             
-            mostrarPalavraTracejada();
+            mostrarPalavra();
             resetar();
             return false;
         }
