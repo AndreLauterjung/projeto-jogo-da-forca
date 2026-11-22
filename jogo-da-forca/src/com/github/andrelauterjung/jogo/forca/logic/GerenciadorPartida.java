@@ -64,6 +64,12 @@ public class GerenciadorPartida {
     }
 
     
+    /**
+     * Exibe o boneco da forca de acordo com a quantidade de erros
+     * acumulados pelo jogador na rodada atual.
+     *
+     * @param dados informações da partida utilizadas para obter a quantidade de erros
+     */
     public void mostrarBoneco(DadosJogo dados) {
         
         tela.mostrarBoneco(dados.getQuantidadeErros());
@@ -89,7 +95,6 @@ public class GerenciadorPartida {
     }
     
 
-    
     /**
      * Verifica se a rodada atual deve continuar ou ser encerrada.
      * <ul>
