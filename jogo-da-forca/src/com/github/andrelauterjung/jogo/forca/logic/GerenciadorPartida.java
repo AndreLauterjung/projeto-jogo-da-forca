@@ -4,8 +4,8 @@ import com.github.andrelauterjung.jogo.forca.model.ListaPalavras;
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
-
 import java.util.ArrayList;
+
 /**
  *
  * @author andrelauterjung
@@ -19,11 +19,19 @@ public class GerenciadorPartida {
     private RodadaPalavra palavraAtual;
     private int numeroRodada = 0;
     
+    
+    /**
+     * Inicializa o gerenciador da partida com os dados do jogo.
+     * Também instancia o objeto responsável pelo controle da palavra da rodada.
+     *
+     * @param dados informações utilizadas no gerenciamento da partida
+     */
     public GerenciadorPartida(DadosJogo dados) {
         this.dados = dados;
         this.palavraAtual = new RodadaPalavra(this.dados);
     }
-        
+
+    
     /**
      * Cópia da lista principal de palavras, usada durante o jogo.
      * <p>
