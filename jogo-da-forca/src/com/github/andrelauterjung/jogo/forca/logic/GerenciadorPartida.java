@@ -138,17 +138,28 @@ public class GerenciadorPartida {
     }
     
     
-    public boolean encerrarPrograma() {
-        boolean encerrarProgramaGeral = true;
+    /**
+     * Verifica se ainda existem palavras disponíveis para continuar a execução
+     * do programa.
+     * <p>
+     * Caso não existam palavras restantes, exibe a mensagem de encerramento
+     * por limite de palavras e interrompe a execução.
+     *
+     * @return true se ainda houver palavras disponíveis ou false caso contrário
+     */
+    public boolean continuarPrograma() {
         
         int qtdPalavras = getQuantidadePalavras();
         
         if(qtdPalavras == 0) {
             
             MensagemEncerramento.exibirMensagemEncerramentoProgramaLimitePalavras();
-            encerrarProgramaGeral = false;
+            return false;
         }
-        return encerrarProgramaGeral;
+        else {
+            
+            return true;
+        }
     }
     
     

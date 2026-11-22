@@ -15,7 +15,7 @@ public class ControladorJogo
     GerenciadorPartida gerenciador = new GerenciadorPartida(dados);
     
     Scanner sc = new Scanner(System.in);
-    boolean isRunning = false;
+    boolean isRodadaEmAndamento = false;
     boolean isProgramaFuncionando = false;
     
     public void iniciarJogo() {
@@ -29,7 +29,7 @@ public class ControladorJogo
             
             menuOpcoes(sc);
            
-            while(isRunning) {
+            while(isRodadaEmAndamento) {
                     
                     gerenciador.mostrarBoneco(dados);
                     
@@ -39,8 +39,8 @@ public class ControladorJogo
 
                     gerenciador.verificarLetraNaPalavra(letraDigitada);
 
-                    isRunning = gerenciador.continuarRodada();
-                    isProgramaFuncionando = gerenciador.encerrarPrograma();
+                    isRodadaEmAndamento = gerenciador.continuarRodada();
+                    isProgramaFuncionando = gerenciador.continuarPrograma();
 
                 } // Fechamento Loop While
 
@@ -61,14 +61,14 @@ public class ControladorJogo
         if(opcaoDigitadaMenu == 0) {
             
             isProgramaFuncionando = false;
-            isRunning = false;
+            isRodadaEmAndamento = false;
             MensagemEncerramento.exibirMensagemEncerramentoPrograma();
             
         }
         else if(opcaoDigitadaMenu == 1) {
             
             gerenciador.contagemRodada();
-            isRunning = true;
+            isRodadaEmAndamento = true;
         }
     }
 } // Fechamento da classe.
