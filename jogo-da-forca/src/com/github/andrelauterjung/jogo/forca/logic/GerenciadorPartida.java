@@ -33,7 +33,12 @@ public class GerenciadorPartida {
      */
     ArrayList<String> palavras = new ArrayList<>(listaPalavras.getListaPalavras());
     
-    /* Atualiza palavra atual conforme as rodadas do jogo vão acontecendo. */
+    
+    /**
+     * Atualiza a palavra atual com a primeira palavra disponível na lista,
+     * define sua quantidade de letras e prepara os arrays de caracteres
+     * utilizados para representar a palavra secreta e sua versão tracejada.
+     */
     public void atualizarPalavraAtualListas() {
         
         this.dados.setPalavraAtual(palavras.get(0).toLowerCase());
@@ -42,7 +47,6 @@ public class GerenciadorPartida {
         palavraAtual.adicionarPalavraArrayChar();
         
         palavraAtual.adicionarPalavraTracejadaArray();
-
     }
     
     
