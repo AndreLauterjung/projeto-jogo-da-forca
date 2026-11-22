@@ -39,7 +39,7 @@ public class ControladorJogo
 
                     gerenciador.verificarLetraNaPalavra(letraDigitada);
 
-                    isRunning = gerenciador.encerrarRodada();
+                    isRunning = gerenciador.continuarRodada();
                     isProgramaFuncionando = gerenciador.encerrarPrograma();
 
                 } // Fechamento Loop While

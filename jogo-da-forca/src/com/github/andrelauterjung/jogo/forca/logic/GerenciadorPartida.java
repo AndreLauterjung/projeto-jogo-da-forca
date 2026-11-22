@@ -87,24 +87,38 @@ public class GerenciadorPartida {
     }
 
     
-    public boolean encerrarRodada() {
-        boolean isProgramaEnd = true;
- 
-        /* SE não houver mais traços na palavra tracejada, ou seja, está com todas as letras preenchidas,
-        a palavra atual é removida da lista de palavras e as variáveis são resetadas. */
+    /**
+     * Verifica se a rodada atual deve continuar ou ser encerrada.
+     * <ul>
+     * <li>Se todas as letras da palavra forem descobertas, exibe a palavra
+     * completa e encerra a rodada.</li>
+     * <li>Se o jogador atingir o limite de 6 erros, exibe o boneco e encerra
+     * a rodada.</li>
+     * <li>Caso nenhuma dessas condições seja atendida, a rodada continua.</li>
+     * </ul>
+     * Ao encerrar a rodada, realiza a limpeza dos dados e remove a palavra
+     * utilizada da lista de palavras disponíveis.
+     *
+     * @return true se a rodada deve continuar ou false se foi encerrada
+     */
+    public boolean continuarRodada() {
+        
         if(palavraAtual.temLetraFaltando() == false) {
-            isProgramaEnd = false;
-            resetarPalavra();
+            
+            mostrarPalavraTracejada();
+            resetar();
+            return false;
         }
-        else if(dados.getQuantidadeErros() == 6)
-        {
+        else if(dados.getQuantidadeErros() == 6) {
+            
             tela.mostrarBoneco(dados.getQuantidadeErros());
             resetar();
-            isProgramaEnd = false;
-            
+            return false;        
         }
-        
-        return isProgramaEnd;
+        else {
+            
+            return true;
+        }
     }
     
     
@@ -117,18 +131,10 @@ public class GerenciadorPartida {
         removePalavraAtual();
     }
     
+    
     public void removePalavraAtual() {
         
         palavras.remove(0);
-    }
-    
-    public void resetarPalavra() {
-        
-        if(palavraAtual.temLetraFaltando() == false) {
-            mostrarPalavraTracejada();
-            
-            resetar();
-        }
     }
     
     
