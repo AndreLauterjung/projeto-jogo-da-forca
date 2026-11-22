@@ -46,11 +46,18 @@ public class GerenciadorPartida {
     }
     
     
+    /**
+     * Verifica a letra digitada pelo jogador na palavra atual,
+     * processando a tentativa e atualizando o estado da rodada.
+     *
+     * @param letra caractere informado pelo jogador
+     */
     public void verificarLetraNaPalavra(char letra) {
         
         palavraAtual.processarLetra(letra);
     }
        
+    
     /**
      * Exibe as letras já digitadas pelo jogador e a palavra atual da rodada,
      * representando as letras descobertas e as posições ainda não preenchidas
