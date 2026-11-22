@@ -39,7 +39,7 @@ public class GerenciadorPartida {
      * define sua quantidade de letras e prepara os arrays de caracteres
      * utilizados para representar a palavra secreta e sua versão tracejada.
      */
-    public void atualizarPalavraAtualListas() {
+    public void prepararNovaRodada() {
         
         this.dados.setPalavraAtual(palavras.get(0).toLowerCase());
         this.dados.setQuantidadeLetras(this.dados.getPalavraAtual().length());

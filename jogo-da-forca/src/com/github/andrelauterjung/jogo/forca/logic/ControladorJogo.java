@@ -24,7 +24,7 @@ public class ControladorJogo
         isProgramaFuncionando = true;
         while(isProgramaFuncionando) {
             
-            gerenciador.atualizarPalavraAtualListas();
+            gerenciador.prepararNovaRodada();
             TelaJogo.mensagemJogoDaForca();
             
             menuOpcoes(sc);
