@@ -51,7 +51,11 @@ public class GerenciadorPartida {
         palavraAtual.processarLetra(letra);
     }
        
-    
+    /**
+     * Exibe as letras já digitadas pelo jogador e a palavra atual da rodada,
+     * representando as letras descobertas e as posições ainda não preenchidas
+     * por meio de traços.
+     */
     public void mostrarPalavra() {
         TelaJogo.mensagemLetrasDigitadas(palavraAtual.getLetrasDigitadas());
         
