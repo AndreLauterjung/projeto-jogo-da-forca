@@ -52,13 +52,8 @@ public class GerenciadorPartida {
     }
        
     
-    public void mostrarLetrasJaDigitadas() {
-        TelaJogo.mensagemLetrasDigitadas(palavraAtual.getLetrasDigitadas());
-    }
-    
-    
     public void mostrarPalavra() {
-        mostrarLetrasJaDigitadas();
+        TelaJogo.mensagemLetrasDigitadas(palavraAtual.getLetrasDigitadas());
         
         TelaJogo.textoPalavra();
         TelaJogo.mostrarPalavraLinhaTracejada(palavraAtual.getPalavraLinhaTracejada());
