@@ -4,6 +4,7 @@ import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 /**
  *
  * @author andrelauterjung
@@ -54,21 +55,41 @@ public class ControladorJogo
      
     
     public void menuOpcoes(Scanner sc) {
-        TelaJogo.menuOpcoes();
-        int opcaoDigitadaMenu = sc.nextInt();
-        sc.nextLine();
         
-        if(opcaoDigitadaMenu == 0) {
+        boolean entradaInvalida = true;
+        
+        while(entradaInvalida) {
             
-            isProgramaFuncionando = false;
-            isRodadaEmAndamento = false;
-            MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+            try {
             
+                TelaJogo.menuOpcoes();
+                int opcaoDigitadaMenu = sc.nextInt();
+                sc.nextLine();
+
+                if(opcaoDigitadaMenu == 0) {
+                    
+                    entradaInvalida = false;
+                    isProgramaFuncionando = false;
+                    isRodadaEmAndamento = false;
+                    MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+
+                }
+                else if(opcaoDigitadaMenu == 1) {
+
+                    entradaInvalida = false;
+                    gerenciador.contagemRodada();
+                    isRodadaEmAndamento = true;
+                }
+                else {
+                    System.out.println("Opção inválida! Digite 0 ou 1.");
+                    entradaInvalida = true;
+                }
+            }
+            catch(InputMismatchException inputMismatchException) {
+                System.out.println("Você precisa digitar um número!");
+                sc.next();
+            }
         }
-        else if(opcaoDigitadaMenu == 1) {
-            
-            gerenciador.contagemRodada();
-            isRodadaEmAndamento = true;
-        }
-    }
+    } // Fechamento do método
+    
 } // Fechamento da classe.
