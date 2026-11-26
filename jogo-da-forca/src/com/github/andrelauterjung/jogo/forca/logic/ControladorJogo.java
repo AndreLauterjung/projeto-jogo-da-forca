@@ -63,7 +63,7 @@ public class ControladorJogo
 
                 } // Fechamento do loop da rodada.
 
-            } // Fechamento do loop principal do jogo
+            } // Fechamento do loop principal do jogo.
         
         this.sc.close();
         } // Fechamento do método iniciarJogo().
@@ -97,30 +97,33 @@ public class ControladorJogo
                 int opcaoDigitadaMenu = sc.nextInt();
                 sc.nextLine();
 
-                if(opcaoDigitadaMenu == 0) {
-                    
-                    entradaInvalida = false;
-                    this.isProgramaFuncionando = false;
-                    this.isRodadaEmAndamento = false;
-                    MensagemEncerramento.exibirMensagemEncerramentoPrograma();
-
-                }
-                else if(opcaoDigitadaMenu == 1) {
-
-                    entradaInvalida = false;
-                    this.gerenciador.contagemRodada();
-                    this.isRodadaEmAndamento = true;
-                }
-                else {
-                    System.out.println("Opção inválida! Digite 0 ou 1.");
-                    entradaInvalida = true;
-                }
+                switch(opcaoDigitadaMenu) {
+                    case 0:
+                        entradaInvalida = false;
+                        this.isProgramaFuncionando = false;
+                        this.isRodadaEmAndamento = false;
+                        MensagemEncerramento.exibirMensagemEncerramentoPrograma();
+                        break;
+                        
+                    case 1:
+                        entradaInvalida = false;
+                        this.gerenciador.contagemRodada();
+                        this.isRodadaEmAndamento = true;
+                        break;
+                        
+                    default:
+                        System.out.println("Opção inválida! Digite 0 ou 1.");
+                        entradaInvalida = true;
+                        
+                } // Fechamento switch-case.
             }
             catch(InputMismatchException inputMismatchException) {
                 System.out.println("Você precisa digitar um número!");
                 sc.next();
             }
-        }
-    } // Fechamento do método
+            
+        } // Fechamento do loop while.
+        
+    } // Fechamento do método menuOpcoes().
     
 } // Fechamento da classe.
