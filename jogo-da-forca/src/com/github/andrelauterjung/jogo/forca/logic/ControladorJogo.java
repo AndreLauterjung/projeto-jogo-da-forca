@@ -44,23 +44,23 @@ public class ControladorJogo
         this.isProgramaFuncionando = true;
         while(this.isProgramaFuncionando) {
             
-            gerenciador.prepararNovaRodada();
+            this.gerenciador.prepararNovaRodada();
             TelaJogo.mensagemJogoDaForca();
             
             menuOpcoes(this.sc);
            
             while(this.isRodadaEmAndamento) {
                     
-                    gerenciador.mostrarBoneco(dados);
+                    this.gerenciador.mostrarBoneco(this.dados);
                     
-                    gerenciador.mostrarPalavra();
+                    this.gerenciador.mostrarPalavra();
                     
-                    char letraDigitada = entradaDados.lerLetra(this.sc);
+                    char letraDigitada = this.entradaDados.lerLetra(this.sc);
 
-                    gerenciador.verificarLetraNaPalavra(letraDigitada);
+                    this.gerenciador.verificarLetraNaPalavra(letraDigitada);
 
-                    this.isRodadaEmAndamento = gerenciador.continuarRodada();
-                    this.isProgramaFuncionando = gerenciador.continuarPrograma();
+                    this.isRodadaEmAndamento = this.gerenciador.continuarRodada();
+                    this.isProgramaFuncionando = this.gerenciador.continuarPrograma();
 
                 } // Fechamento Loop While
 
@@ -84,7 +84,7 @@ public class ControladorJogo
      *
      * @param sc o Scanner usado para ler a entrada do console
      */
-    public void menuOpcoes(Scanner sc) {
+    private void menuOpcoes(Scanner sc) {
         
         boolean entradaInvalida = true;
         
@@ -107,7 +107,7 @@ public class ControladorJogo
                 else if(opcaoDigitadaMenu == 1) {
 
                     entradaInvalida = false;
-                    gerenciador.contagemRodada();
+                    this.gerenciador.contagemRodada();
                     this.isRodadaEmAndamento = true;
                 }
                 else {
