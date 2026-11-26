@@ -19,6 +19,13 @@ public class RodadaPalavra {
     private char[] palavraArrayChar;
     private char[] palavraTracejadaChar;
 
+    /**
+     * Inicializa o controle da palavra da rodada com os dados da partida,
+     * preparando o histórico de letras digitadas e os arrays vazios da palavra
+     * secreta e da palavra tracejada.
+     *
+     * @param dados informações de estado da rodada atual.
+     */
     public RodadaPalavra(DadosJogo dados) {
 
         this.dados = dados;
