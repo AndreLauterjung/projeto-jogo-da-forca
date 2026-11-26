@@ -117,8 +117,8 @@ public class RodadaPalavra {
     }
 
     /**
-     * Reinicia o estado da palavra da rodada, limpando as letras já digitadas
-     * e redefinindo os arrays da palavra secreta e da palavra tracejada.
+     * Reinicia o estado da palavra da rodada, limpando as letras já digitadas e
+     * redefinindo os arrays da palavra secreta e da palavra tracejada.
      * <p>
      * Deve ser chamado ao encerrar uma rodada para preparar o objeto para a
      * próxima partida.
@@ -128,7 +128,7 @@ public class RodadaPalavra {
         this.palavraArrayChar = new char[0];
         this.palavraTracejadaChar = new char[0];
     }
-    
+
     /**
      * Limpa as letras digitadas na rodada atual. Deve ser chamado ao encerrar
      * uma rodada, para que a próxima comece sem letras.
