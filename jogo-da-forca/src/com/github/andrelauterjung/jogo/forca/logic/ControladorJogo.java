@@ -5,7 +5,13 @@ import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import java.util.Scanner;
 import java.util.InputMismatchException;
+
 /**
+ * Controla o fluxo geral de execução do Jogo da Forca no console.
+ * <p>
+ * Coordena o ciclo de vida do programa, exibindo o menu principal,
+ * processando a opção escolhida pelo usuário e integrando a entrada
+ * de dados com o gerenciamento das rodadas e dos estados do jogo.
  *
  * @author andrelauterjung
  */
