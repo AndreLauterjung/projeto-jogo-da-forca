@@ -19,6 +19,18 @@ public class ControladorJogo
     boolean isRodadaEmAndamento = false;
     boolean isProgramaFuncionando = false;
     
+    
+    /**
+    * Inicia e controla o fluxo principal de execução do Jogo da Forca.
+    * <p>
+    * Mantém o programa em execução enquanto o jogador optar por continuar e
+    * ainda houver palavras disponíveis na lista. A cada ciclo, prepara uma nova
+    * rodada, exibe o cabeçalho do jogo e apresenta o menu de opções.
+    * <p>
+    * Quando uma rodada é iniciada, gerencia o loop de tentativas: exibe o estado
+    * atual do boneco e da palavra tracejada, lê e valida cada letra digitada e
+    * verifica se a rodada ou o programa devem ser encerrados.
+    */
     public void iniciarJogo() {
         
         //onde será mostrado o menu.
