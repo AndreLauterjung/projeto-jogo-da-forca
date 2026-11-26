@@ -45,7 +45,7 @@ src/
 
 ---
 
-## 🛠️ Tecnologias e Conceitos Aplicados
+## Tecnologias e Conceitos Aplicados
 
 - **Java (JDK 21+)**
 - **Arquitetura MVC** (Model-View-Controller) e encapsulamento
@@ -56,7 +56,7 @@ src/
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Opção 1: Pacote pronto (Linux x64 com JRE embutida)
 1. Acesse a aba **Releases** deste repositório e baixe o arquivo compactado da versão **`v1.1.0`**.
