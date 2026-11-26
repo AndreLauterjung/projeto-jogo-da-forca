@@ -53,7 +53,18 @@ public class ControladorJogo
         
         
      
-    
+    /**
+     * Exibe o menu principal do jogo e processa a opção escolhida pelo usuário.
+     * <ul>
+     * <li><b>1:</b> inicia uma nova rodada e atualiza a contagem de partidas.</li>
+     * <li><b>0:</b> encerra a execução do programa e exibe a mensagem de saída.</li>
+     * </ul>
+     * Caso o usuário digite um número diferente de 0 ou 1, ou informe um valor
+     * não numérico, exibe uma mensagem de erro e solicita a entrada novamente
+     * até receber uma opção válida.
+     *
+     * @param sc o Scanner usado para ler a entrada do console
+     */
     public void menuOpcoes(Scanner sc) {
         
         boolean entradaInvalida = true;
