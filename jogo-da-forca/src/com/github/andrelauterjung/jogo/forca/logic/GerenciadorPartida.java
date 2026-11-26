@@ -15,13 +15,22 @@ import java.util.ArrayList;
  */
 public class GerenciadorPartida {
     
-    TelaJogo tela = new TelaJogo();
-    ListaPalavras listaPalavras = new ListaPalavras();
+    private TelaJogo tela = new TelaJogo();
+    private ListaPalavras listaPalavras = new ListaPalavras();
     
     private DadosJogo dados;
     private RodadaPalavra palavraAtual;
     private int numeroRodada = 0;
     
+    
+    /**
+     * Cópia da lista principal de palavras, usada durante o jogo.
+     * <p>
+     * As palavras são removidas desta cópia a cada rodada, então a lista
+     * original (ListaPalavras) não é alterada, e fica fácil adicionar ou
+     * remover palavras do jogo.
+     */
+     private ArrayList<String> palavras = new ArrayList<>(this.listaPalavras.getListaPalavras());
     
     /**
      * Inicializa o gerenciador da partida com os dados do jogo.
@@ -35,14 +44,6 @@ public class GerenciadorPartida {
     }
 
     
-    /**
-     * Cópia da lista principal de palavras, usada durante o jogo.
-     * <p>
-     * As palavras são removidas desta cópia a cada rodada, então a lista
-     * original (ListaPalavras) não é alterada, e fica fácil adicionar ou
-     * remover palavras do jogo.
-     */
-    ArrayList<String> palavras = new ArrayList<>(listaPalavras.getListaPalavras());
     
     
     /**
@@ -52,7 +53,7 @@ public class GerenciadorPartida {
      */
     public void prepararNovaRodada() {
         
-        this.dados.setPalavraAtual(palavras.get(0).toLowerCase());
+        this.dados.setPalavraAtual(this.palavras.get(0).toLowerCase());
         this.dados.setQuantidadeLetras(this.dados.getPalavraAtual().length());
         
         palavraAtual.adicionarPalavraArrayChar();
@@ -94,7 +95,7 @@ public class GerenciadorPartida {
      */
     public void mostrarBoneco(DadosJogo dados) {
         
-        tela.mostrarBoneco(dados.getQuantidadeErros());
+        this.tela.mostrarBoneco(dados.getQuantidadeErros());
     }
 
     
@@ -141,7 +142,7 @@ public class GerenciadorPartida {
         }
         else if(dados.getQuantidadeErros() == 6) {
             
-            tela.mostrarBoneco(dados.getQuantidadeErros());
+            this.tela.mostrarBoneco(dados.getQuantidadeErros());
             resetar();
             return false;        
         }
@@ -175,7 +176,7 @@ public class GerenciadorPartida {
      */
     public void removePalavraAtual() {
         
-        palavras.remove(0);
+        this.palavras.remove(0);
     }
     
     
@@ -211,7 +212,7 @@ public class GerenciadorPartida {
      */
     public int getQuantidadePalavras() {
         
-        return palavras.size();
+        return this.palavras.size();
     }
     
 }
