@@ -116,7 +116,13 @@ public class RodadaPalavra {
         return false;
     }
 
-    
+    /**
+     * Reinicia o estado da palavra da rodada, limpando as letras já digitadas
+     * e redefinindo os arrays da palavra secreta e da palavra tracejada.
+     * <p>
+     * Deve ser chamado ao encerrar uma rodada para preparar o objeto para a
+     * próxima partida.
+     */
     public void resetar() {
         resetarLetrasDigitadas();
         this.palavraArrayChar = new char[0];
