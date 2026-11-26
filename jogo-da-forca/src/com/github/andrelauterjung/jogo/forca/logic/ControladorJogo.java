@@ -2,6 +2,7 @@ package com.github.andrelauterjung.jogo.forca.logic;
 
 import com.github.andrelauterjung.jogo.forca.model.DadosJogo;
 import com.github.andrelauterjung.jogo.forca.view.MensagemEncerramento;
+import com.github.andrelauterjung.jogo.forca.view.MensagemErro;
 import com.github.andrelauterjung.jogo.forca.view.TelaJogo;
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -83,7 +84,7 @@ public class ControladorJogo
      * não numérico, exibe uma mensagem de erro e solicita a entrada novamente
      * até receber uma opção válida.
      *
-     * @param sc o Scanner usado para ler a entrada do console
+     * @param sc o Scanner usado para ler a entrada do console.
      */
     private void menuOpcoes(Scanner sc) {
         
@@ -112,13 +113,13 @@ public class ControladorJogo
                         break;
                         
                     default:
-                        System.out.println("Opção inválida! Digite 0 ou 1.");
+                        MensagemErro.usuarioDigitouOpcaoInvalida();
                         entradaInvalida = true;
                         
                 } // Fechamento switch-case.
             }
             catch(InputMismatchException inputMismatchException) {
-                System.out.println("Você precisa digitar um número!");
+                MensagemErro.avisoEntradaDados();
                 sc.next();
             }
             

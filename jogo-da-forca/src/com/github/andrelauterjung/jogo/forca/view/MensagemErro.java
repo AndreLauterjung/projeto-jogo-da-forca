@@ -21,6 +21,17 @@ public class MensagemErro {
     }
     
 
+    public static void usuarioDigitouOpcaoInvalida() {
+        System.out.println("\nX X X  ERRO!  X X X");
+        System.out.println("Opção inválida! Digite 0 ou 1.");
+        System.out.println("Tente novamente!");
+    }
+    
+    public static void avisoEntradaDados() {
+        System.out.println("\nX X X  ERRO!  X X X");
+        System.out.println("Você precisa digitar um número!");
+        System.out.println("Tente novamente!");
+    }
 
     
 }
