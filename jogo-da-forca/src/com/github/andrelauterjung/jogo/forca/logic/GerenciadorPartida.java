@@ -148,7 +148,7 @@ public class GerenciadorPartida {
      * Também reseta os atributos de RodadaPalavra e remove a palavra utilizada
      * da lista de palavras disponíveis.
      */
-    public void resetar() {
+    private void resetar() {
 
         palavraAtual.resetar();
         dados.setPalavraAtual("");
@@ -161,7 +161,7 @@ public class GerenciadorPartida {
      * Remove a primeira palavra da lista de palavras disponíveis, descartando a
      * palavra utilizada na rodada atual.
      */
-    public void removePalavraAtual() {
+    private void removePalavraAtual() {
 
         this.palavras.remove(0);
     }
