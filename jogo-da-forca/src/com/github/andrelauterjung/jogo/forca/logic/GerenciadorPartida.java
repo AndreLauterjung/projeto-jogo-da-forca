@@ -15,7 +15,6 @@ import java.util.ArrayList;
  */
 public class GerenciadorPartida {
 
-    private TelaJogo tela = new TelaJogo();
     private ListaPalavras listaPalavras = new ListaPalavras();
 
     private DadosJogo dados;
@@ -89,7 +88,7 @@ public class GerenciadorPartida {
      */
     public void mostrarBoneco(DadosJogo dados) {
 
-        this.tela.mostrarBoneco(dados.getQuantidadeErros());
+        TelaJogo.mostrarBoneco(dados.getQuantidadeErros());
     }
 
     /**
@@ -133,7 +132,7 @@ public class GerenciadorPartida {
             return false;
         } else if (dados.getQuantidadeErros() == 6) {
 
-            this.tela.mostrarBoneco(dados.getQuantidadeErros());
+            TelaJogo.mostrarBoneco(dados.getQuantidadeErros());
             resetar();
             return false;
         } else {

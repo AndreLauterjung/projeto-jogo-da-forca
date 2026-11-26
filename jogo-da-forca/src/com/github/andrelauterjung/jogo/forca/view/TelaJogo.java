@@ -133,7 +133,7 @@ public class TelaJogo {
      *
      * @param erros a quantidade de erros acumulados na rodada (de 0 a 6).
      */
-    public void mostrarBoneco(int erros) {
+    public static void mostrarBoneco(int erros) {
 
         switch (erros) {
 
