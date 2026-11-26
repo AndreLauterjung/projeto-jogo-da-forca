@@ -17,13 +17,14 @@ import java.util.InputMismatchException;
  */
 public class ControladorJogo
 {
-    DadosJogo dados = new DadosJogo();
-    EntradaDados entradaDados = new EntradaDados();
-    GerenciadorPartida gerenciador = new GerenciadorPartida(dados);
+    private DadosJogo dados = new DadosJogo();
+    private EntradaDados entradaDados = new EntradaDados();
+    private GerenciadorPartida gerenciador = new GerenciadorPartida(dados);
     
-    Scanner sc = new Scanner(System.in);
-    boolean isRodadaEmAndamento = false;
-    boolean isProgramaFuncionando = false;
+    private Scanner sc = new Scanner(System.in);
+    
+    private boolean isRodadaEmAndamento = false;
+    private boolean isProgramaFuncionando = false;
     
     
     /**
@@ -40,26 +41,26 @@ public class ControladorJogo
     public void iniciarJogo() {
         
         //onde será mostrado o menu.
-        isProgramaFuncionando = true;
-        while(isProgramaFuncionando) {
+        this.isProgramaFuncionando = true;
+        while(this.isProgramaFuncionando) {
             
             gerenciador.prepararNovaRodada();
             TelaJogo.mensagemJogoDaForca();
             
-            menuOpcoes(sc);
+            menuOpcoes(this.sc);
            
-            while(isRodadaEmAndamento) {
+            while(this.isRodadaEmAndamento) {
                     
                     gerenciador.mostrarBoneco(dados);
                     
                     gerenciador.mostrarPalavra();
                     
-                    char letraDigitada = entradaDados.lerLetra(sc);
+                    char letraDigitada = entradaDados.lerLetra(this.sc);
 
                     gerenciador.verificarLetraNaPalavra(letraDigitada);
 
-                    isRodadaEmAndamento = gerenciador.continuarRodada();
-                    isProgramaFuncionando = gerenciador.continuarPrograma();
+                    this.isRodadaEmAndamento = gerenciador.continuarRodada();
+                    this.isProgramaFuncionando = gerenciador.continuarPrograma();
 
                 } // Fechamento Loop While
 
@@ -98,8 +99,8 @@ public class ControladorJogo
                 if(opcaoDigitadaMenu == 0) {
                     
                     entradaInvalida = false;
-                    isProgramaFuncionando = false;
-                    isRodadaEmAndamento = false;
+                    this.isProgramaFuncionando = false;
+                    this.isRodadaEmAndamento = false;
                     MensagemEncerramento.exibirMensagemEncerramentoPrograma();
 
                 }
@@ -107,7 +108,7 @@ public class ControladorJogo
 
                     entradaInvalida = false;
                     gerenciador.contagemRodada();
-                    isRodadaEmAndamento = true;
+                    this.isRodadaEmAndamento = true;
                 }
                 else {
                     System.out.println("Opção inválida! Digite 0 ou 1.");
