@@ -15,6 +15,7 @@ import java.util.ArrayList;
  */
 public class GerenciadorPartida {
 
+    private static final int LIMITE_ERROS = 6;
     private ListaPalavras listaPalavras = new ListaPalavras();
 
     private DadosJogo dados;
@@ -130,7 +131,7 @@ public class GerenciadorPartida {
             mostrarPalavra();
             resetar();
             return false;
-        } else if (dados.getQuantidadeErros() == 6) {
+        } else if (dados.getQuantidadeErros() == LIMITE_ERROS) {
 
             TelaJogo.mostrarBoneco(dados.getQuantidadeErros());
             resetar();
