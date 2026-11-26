@@ -4,7 +4,7 @@ Um jogo da forca clássico desenvolvido em **Java**, estruturado em camadas (**M
 
 ---
 
-## ✨ Funcionalidades (v1.1.0)
+## Funcionalidades (v1.1.0)
 
 - **Catálogo de Palavras (A–Z):** Lista pré-definida com 26 palavras em português (uma para cada letra do alfabeto), sem acentuação gráfica para padronizar as tentativas no console.
 - **Histórico de Letras Digitadas:** Exibição contínua das letras já tentadas na rodada atual, evitando repetições acidentais.
@@ -15,7 +15,7 @@ Um jogo da forca clássico desenvolvido em **Java**, estruturado em camadas (**M
 
 ---
 
-## 📂 Arquitetura do Projeto
+## Arquitetura do Projeto
 
 O código foi organizado com isolamento total de responsabilidades — as camadas `model` e `logic` não possuem dependências de saída no console (`System.out`), mantendo toda a interface textual centralizada em `view`:
 
@@ -78,6 +78,6 @@ java -cp out com.github.andrelauterjung.jogo.forca.app.Main
 
 ---
 
-## 🔮 Próximos Passos
+## Próximos Passos
 
 - [ ] Integrar persistência com banco de dados relacional (**MySQL** via **JDBC**) na camada `model` para gerenciar o catálogo de palavras dinamicamente.
