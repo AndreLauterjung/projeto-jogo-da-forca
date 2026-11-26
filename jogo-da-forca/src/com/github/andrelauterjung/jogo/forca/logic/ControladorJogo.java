@@ -40,7 +40,6 @@ public class ControladorJogo
     */
     public void iniciarJogo() {
         
-        //onde será mostrado o menu.
         this.isProgramaFuncionando = true;
         while(this.isProgramaFuncionando) {
             
@@ -62,10 +61,12 @@ public class ControladorJogo
                     this.isRodadaEmAndamento = this.gerenciador.continuarRodada();
                     this.isProgramaFuncionando = this.gerenciador.continuarPrograma();
 
-                } // Fechamento Loop While
+                } // Fechamento do loop da rodada.
 
-            } // Fechamento do método iniciarJogo().
-        }
+            } // Fechamento do loop principal do jogo
+        
+        this.sc.close();
+        } // Fechamento do método iniciarJogo().
         
         
         
