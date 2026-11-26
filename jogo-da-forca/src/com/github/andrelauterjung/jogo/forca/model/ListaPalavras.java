@@ -3,18 +3,19 @@ package com.github.andrelauterjung.jogo.forca.model;
 import java.util.ArrayList;
 
 /**
- * Armazena e fornece o banco de palavras utilizado nas partidas do Jogo da Forca.
+ * Armazena e fornece o banco de palavras utilizado nas partidas do Jogo da
+ * Forca.
  * <p>
  * Contém uma coleção pré-definida de 26 palavras em português (uma para cada
- * letra do alfabeto, de A a Z), escritas sem acentuação gráfica ou cedilha
- * para facilitar a validação das tentativas no console.
+ * letra do alfabeto, de A a Z), escritas sem acentuação gráfica ou cedilha para
+ * facilitar a validação das tentativas no console.
  *
  * @author andrelauterjung
  */
 public class ListaPalavras {
-    
+
     private ArrayList<String> listaPalavras;
-    
+
     /**
      * Inicializa a lista e a preenche com o conjunto padrão de 26 palavras
      * disponíveis para sorteio nas rodadas do jogo.
@@ -49,14 +50,15 @@ public class ListaPalavras {
         listaPalavras.add("yakisoba");
         listaPalavras.add("zumbi");
     }
-    
+
     /**
      * Retorna a lista completa de palavras cadastradas para o jogo.
      *
-     * @return um ArrayList do tipo String contendo todas as palavras disponíveis.
+     * @return um ArrayList do tipo String contendo todas as palavras
+     * disponíveis.
      */
     public ArrayList<String> getListaPalavras() {
         return this.listaPalavras;
     }
-    
+
 }
