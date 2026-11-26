@@ -85,7 +85,6 @@ public class ControladorJogo {
     private void menuOpcoes(Scanner sc) {
 
         boolean entradaInvalida = true;
-
         while (entradaInvalida) {
 
             try {
@@ -95,7 +94,9 @@ public class ControladorJogo {
                 sc.nextLine();
 
                 switch (opcaoDigitadaMenu) {
+
                     case 0:
+
                         entradaInvalida = false;
                         this.isProgramaFuncionando = false;
                         this.isRodadaEmAndamento = false;
@@ -103,17 +104,20 @@ public class ControladorJogo {
                         break;
 
                     case 1:
+
                         entradaInvalida = false;
                         this.gerenciador.contagemRodada();
                         this.isRodadaEmAndamento = true;
                         break;
 
                     default:
+
                         MensagemErro.usuarioDigitouOpcaoInvalida();
                         entradaInvalida = true;
 
                 } // Fechamento switch-case.
             } catch (InputMismatchException inputMismatchException) {
+
                 MensagemErro.avisoEntradaDados();
                 sc.next();
             }
